@@ -291,23 +291,9 @@ export function Desktop() {
   const [booting, setBooting] = useState<null | boolean>(null); // null = undecided (SSR)
   const [bootDone, setBootDone] = useState(false);
 
+  // Boot shows on EVERY page load/reload, for the full 5 seconds.
   useEffect(() => {
-    let seen = false;
-    try {
-      seen = sessionStorage.getItem("w7-booted") === "1";
-    } catch {
-      /* ignore */
-    }
-    if (seen) {
-      setBooting(false);
-      return;
-    }
     setBooting(true);
-    try {
-      sessionStorage.setItem("w7-booted", "1");
-    } catch {
-      /* ignore */
-    }
     // 5-second boot: fade-out starts at 4.58s and runs 0.42s, so the screen
     // clears at exactly 5.00s.
     const t = window.setTimeout(() => setBootDone(true), 4580);

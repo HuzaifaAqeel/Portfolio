@@ -272,7 +272,7 @@ export function OrbEmblem({ size = 28 }: { size?: number }) {
       alt=""
       aria-hidden="true"
       width={size}
-      height={Math.round((size * 264) / 356)}
+      height={Math.round((size * 320) / 358)}
       loading="lazy"
       style={{ display: "block", objectFit: "contain" }}
     />

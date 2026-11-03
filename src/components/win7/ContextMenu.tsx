@@ -39,7 +39,13 @@ export function DesktopContextMenu(props: DesktopMenuProps) {
   }, [x, y]);
 
   useEffect(() => {
-    const away = () => onClose();
+    // Close only on a pointer press OUTSIDE any menu — never on a press
+    // inside the main menu or its submenu (stopPropagation alone was not
+    // reliable here, so check the actual target).
+    const away = (e: PointerEvent) => {
+      if ((e.target as HTMLElement | null)?.closest?.(".w7-menu")) return;
+      onClose();
+    };
     window.addEventListener("pointerdown", away);
     return () => window.removeEventListener("pointerdown", away);
   }, [onClose]);
@@ -47,7 +53,7 @@ export function DesktopContextMenu(props: DesktopMenuProps) {
   const item = (
     label: string,
     onClick?: () => void,
-    opts?: { submenu?: "view" | "sort" | "new"; checked?: boolean },
+    opts?: { submenu?: "view" | "sort" | "new"; checked?: boolean; inSubmenu?: boolean },
   ) => (
     <button
       key={label}
@@ -55,9 +61,21 @@ export function DesktopContextMenu(props: DesktopMenuProps) {
       role="menuitem"
       className="w7-menu-item"
       data-open={sub === opts?.submenu}
-      onPointerEnter={() => setSub(opts?.submenu ?? null)}
+      onPointerEnter={() => {
+        // BUG FIX: submenu items used to reset the open submenu to null on
+        // hover, so the submenu vanished the instant the pointer touched
+        // it and no click could ever land. Items inside an open submenu
+        // must leave the submenu state untouched.
+        if (opts?.inSubmenu) return;
+        setSub(opts?.submenu ?? null);
+      }}
       onClick={() => {
-        if (opts?.submenu) return;
+        // Parent items are clickable too: clicking View / Sort By / New
+        // toggles its submenu open (hover alone is not the only way in).
+        if (opts?.submenu) {
+          setSub((prev) => (prev === opts.submenu ? null : opts.submenu));
+          return;
+        }
         onClick?.();
         onClose();
       }}
@@ -72,7 +90,12 @@ export function DesktopContextMenu(props: DesktopMenuProps) {
     </button>
   );
 
-  const submenuStyle: React.CSSProperties = { left: "100%", top: -3, position: "absolute" };
+  // Near the right screen edge, open submenus to the LEFT so they stay
+  // on screen and clickable instead of overflowing off-screen.
+  const flip = pos.x > window.innerWidth - 430;
+  const submenuStyle: React.CSSProperties = flip
+    ? { right: "100%", top: -3, position: "absolute" }
+    : { left: "100%", top: -3, position: "absolute" };
 
   return (
     <div
@@ -87,9 +110,9 @@ export function DesktopContextMenu(props: DesktopMenuProps) {
       <div style={{ position: "relative" }} onPointerLeave={() => setSub(null)}>
         {item("View", undefined, { submenu: "view" })}
         {sub === "view" && (
-          <div className="w7-menu" role="menu" style={submenuStyle}>
+          <div className="w7-menu" role="menu" style={submenuStyle} onPointerEnter={() => setSub("view")}>
             {(["large", "medium", "small"] as IconSize[]).map((s) =>
-              item(`${s[0]?.toUpperCase()}${s.slice(1)} icons`, () => props.onIconSize(s), { checked: props.iconSize === s }),
+              item(`${s[0]?.toUpperCase()}${s.slice(1)} icons`, () => props.onIconSize(s), { checked: props.iconSize === s, inSubmenu: true }),
             )}
           </div>
         )}
@@ -98,8 +121,8 @@ export function DesktopContextMenu(props: DesktopMenuProps) {
       <div style={{ position: "relative" }} onPointerLeave={() => setSub(null)}>
         {item("Sort By", undefined, { submenu: "sort" })}
         {sub === "sort" && (
-          <div className="w7-menu" role="menu" style={submenuStyle}>
-            {["Name", "Date modified", "Item type", "Career importance"].map((s) => item(s, () => props.onSort(s)))}
+          <div className="w7-menu" role="menu" style={submenuStyle} onPointerEnter={() => setSub("sort")}>
+            {["Name", "Date modified", "Item type", "Career importance"].map((s) => item(s, () => props.onSort(s), { inSubmenu: true }))}
           </div>
         )}
       </div>
@@ -110,8 +133,8 @@ export function DesktopContextMenu(props: DesktopMenuProps) {
       <div style={{ position: "relative" }} onPointerLeave={() => setSub(null)}>
         {item("New", undefined, { submenu: "new" })}
         {sub === "new" && (
-          <div className="w7-menu" role="menu" style={submenuStyle}>
-            {["New Folder", "Text Document", "Project Shortcut"].map((s) => item(s, () => props.onNew(s)))}
+          <div className="w7-menu" role="menu" style={submenuStyle} onPointerEnter={() => setSub("new")}>
+            {["New Folder", "Text Document", "Project Shortcut"].map((s) => item(s, () => props.onNew(s), { inSubmenu: true }))}
           </div>
         )}
       </div>
