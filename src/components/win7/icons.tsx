@@ -262,22 +262,24 @@ export function Icon({
   }
 }
 
-/** The generic emblem used on the start orb (original four-petal mark). */
-export function OrbEmblem({ size = 22 }: { size?: number }) {
+/** Start orb emblem: a four-colour flag in the Windows 7 orb style, drawn in code (no logo file). */
+export function OrbEmblem({ size = 28 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
+    <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden="true">
       <defs>
-        <linearGradient id="orbP" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#ffffff" />
-          <stop offset="1" stopColor="#bfe4ff" />
-        </linearGradient>
+        <clipPath id="orbFlagClip">
+          <circle cx="16" cy="16" r="13.5" />
+        </clipPath>
       </defs>
-      <g fill="url(#orbP)" opacity=".95">
-        <path d="M11.2 3.2c.4-.5 1.2-.5 1.6 0l1.4 1.9c.3.4.2 1-.2 1.3L12 8.2 9.9 6.4c-.4-.3-.5-.9-.2-1.3z" />
-        <path d="M20.8 11.2c.5.4.5 1.2 0 1.6l-1.9 1.4c-.4.3-1 .2-1.3-.2L15.8 12l1.8-2.1c.3-.4.9-.5 1.3-.2z" />
-        <path d="M12.8 20.8c-.4.5-1.2.5-1.6 0l-1.4-1.9c-.3-.4-.2-1 .2-1.3L12 15.8l2.1 1.8c.4.3.5.9.2 1.3z" />
-        <path d="M3.2 12.8c-.5-.4-.5-1.2 0-1.6l1.9-1.4c.4-.3 1-.2 1.3.2L8.2 12l-1.8 2.1c-.3.4-.9.5-1.3.2z" />
+      <g clipPath="url(#orbFlagClip)">
+        {/* Waving 2x2 flag: red / green / blue / yellow, as on the Windows 7 Start orb */}
+        <path d="M2 3 Q8 1 15 3 L15 15 Q8 13 2 15 Z" fill="#f65314" />
+        <path d="M17 3 Q24 1 30 3 L30 15 Q24 13 17 15 Z" fill="#7cbb00" />
+        <path d="M2 17 Q8 15 15 17 L15 29 Q8 27 2 29 Z" fill="#00a1f1" />
+        <path d="M17 17 Q24 15 30 17 L30 29 Q24 27 17 29 Z" fill="#ffbb00" />
+        <ellipse cx="16" cy="10" rx="14" ry="5" fill="#ffffff" opacity="0.22" />
       </g>
+      <circle cx="16" cy="16" r="13.5" fill="none" stroke="#ffffff" strokeOpacity="0.35" strokeWidth="1" />
     </svg>
   );
 }

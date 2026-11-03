@@ -23,13 +23,16 @@ export function ProjectWindow({ win }: { win: WinState }) {
   const { showDialog } = useOS();
   if (!project) return <div className="w7-pane">This project could not be found.</div>;
 
+  const openReal = (url: string) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
   const notReal = (what: string) =>
     showDialog({
-      title: "Portfolio Demo",
+      title: "Portfolio",
       kind: "info",
-      heading: `${what} is a placeholder`,
+      heading: `${what} is not linked yet`,
       message:
-        "These are sample projects for the desktop demo, so the link goes nowhere. Swap in the real URL and it will open normally.",
+        "This project has no live link attached yet. Its GitHub link, where shown, opens normally.",
       buttons: [{ label: "OK", primary: true }],
     });
 
@@ -109,17 +112,17 @@ export function ProjectWindow({ win }: { win: WinState }) {
 
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 20 }}>
         {project.liveUrl && (
-          <button type="button" className="w7-btn w7-btn-default" onClick={() => notReal("View Live Project")}>
+          <button type="button" className="w7-btn w7-btn-default" onClick={() => openReal(project.liveUrl!)}>
             View Live Project
           </button>
         )}
         {project.caseStudyUrl && (
-          <button type="button" className="w7-btn" onClick={() => notReal("View Case Study")}>
+          <button type="button" className="w7-btn" onClick={() => openReal(project.caseStudyUrl!)}>
             View Case Study
           </button>
         )}
         {project.githubUrl && (
-          <button type="button" className="w7-btn" onClick={() => notReal("Source Code")}>
+          <button type="button" className="w7-btn" onClick={() => openReal(project.githubUrl!)}>
             GitHub / Source Code
           </button>
         )}
@@ -328,13 +331,8 @@ export function ResumeWindow({ win }: { win: WinState }) {
   return (
     <>
       <div className="w7-nav">
-        <button type="button" className="w7-btn" onClick={() => showDialog({
-          title: "Download",
-          kind: "info",
-          heading: "Resume download",
-          message: "Attach the real PDF and this button will download it. For now, everything in the document below is the live content.",
-          buttons: [{ label: "OK", primary: true }],
-        })}>Download Resume</button>
+        <button type="button" className="w7-btn" onClick={() => window.open("/Huzaifa_FullStack_Web_Developer_Resume.pdf", "_blank", "noopener,noreferrer")}>Download Full-Stack Resume (PDF)</button>
+        <button type="button" className="w7-btn" onClick={() => window.open("/Huzaifa_AI_Agentic_Developer_Resume.pdf", "_blank", "noopener,noreferrer")}>Download AI Resume (PDF)</button>
         <button type="button" className="w7-btn" onClick={() => window.print()}>Print</button>
         <button type="button" className="w7-btn" onClick={() => toggleMax(win.id)}>Open Full Screen</button>
         <div style={{ flex: 1 }} />
@@ -463,9 +461,10 @@ export function ContactWindow() {
         <h2 className="w7-h2">Contact details</h2>
         <dl style={{ display: "grid", gridTemplateColumns: "100px 1fr", rowGap: 5, columnGap: 10, marginTop: 6 }}>
           <dt className="w7-h3">Email</dt><dd className="w7-p">{owner.email}</dd>
-          <dt className="w7-h3">LinkedIn</dt><dd className="w7-p">/in/zeeshan</dd>
-          <dt className="w7-h3">GitHub</dt><dd className="w7-p">github.com/zeeshan</dd>
-          <dt className="w7-h3">WhatsApp</dt><dd className="w7-p">Available on request</dd>
+          <dt className="w7-h3">Phone</dt><dd className="w7-p">{owner.phone}</dd>
+          <dt className="w7-h3">LinkedIn</dt><dd className="w7-p">linkedin.com/in/ai-huzaifa-aqeel</dd>
+          <dt className="w7-h3">GitHub</dt><dd className="w7-p">github.com/HuzaifaAqeel</dd>
+          <dt className="w7-h3">WhatsApp</dt><dd className="w7-p">+92 330 5979548</dd>
           <dt className="w7-h3">Location</dt><dd className="w7-p">{owner.location}</dd>
         </dl>
       </section>
@@ -538,7 +537,7 @@ export function RecycleWindow() {
 /* ----------------------------- Personalize ----------------------------- */
 
 const wallpaperOptions: { id: Settings["wallpaper"]; label: string }[] = [
-  { id: "blue", label: "Windows Blue" },
+  { id: "blue", label: "Windows XP Bliss" },
   { id: "dark", label: "Dark Aero" },
   { id: "nature", label: "Nature" },
   { id: "minimal", label: "Minimal Blue" },
@@ -615,14 +614,14 @@ export function WinverWindow() {
       <div>
         <h1 className="w7-h1" style={{ fontSize: 18 }}>About This Portfolio</h1>
         <p className="w7-p" style={{ marginTop: 6 }}>
-          Portfolio OS · Version 7.0 (Build 2026.03)
+          Windows XP Portfolio Edition — Muhammad Huzaifa Aqeel
         </p>
         <p className="w7-p" style={{ marginTop: 6 }}>
-          Built with caffeine and questionable sleep decisions.
+          Full-stack web and AI agent work, presented as a Windows XP style desktop.
         </p>
         <p className="w7-p" style={{ marginTop: 10, color: "#6b7c8c" }}>
-          Every window, button and glass edge here is hand-written CSS. No operating system assets
-          were harmed.
+          Every window, button and glass edge here is hand-written CSS. The wallpaper and Start orb
+          are original recreations in the Windows XP style, drawn in code — not Microsoft files.
         </p>
       </div>
     </div>

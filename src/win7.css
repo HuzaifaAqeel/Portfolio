@@ -1,5 +1,5 @@
 /* =========================================================
-   Windows 7 "Aero" visual system — hand-built, no MS assets
+   Windows XP Luna visual system — hand-built, no MS assets
    ========================================================= */
 
 .w7 {
@@ -828,13 +828,14 @@
   cursor: default;
 }
 .w7-orb-ball {
-  width: 42px;
-  height: 42px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
+  /* Windows 7 Start orb: clear glass over the taskbar, flag emblem inside, glow on hover */
   background:
-    radial-gradient(circle at 50% 22%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0) 55%),
-    radial-gradient(circle at 50% 118%, rgba(140, 220, 255, 0.85), rgba(0, 0, 0, 0) 60%),
-    radial-gradient(circle at 50% 50%, #2b8fd8 0%, #16639e 55%, #0a3d68 100%);
+    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0) 52%),
+    radial-gradient(circle at 50% 115%, rgba(160, 220, 255, 0.35), rgba(0, 0, 0, 0) 60%),
+    radial-gradient(circle at 50% 50%, rgba(20, 60, 110, 0.25) 0%, rgba(8, 30, 60, 0.55) 100%);
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.45),
     inset 0 -6px 12px rgba(0, 0, 0, 0.35),
@@ -1309,8 +1310,9 @@
   z-index: 99999;
   display: grid;
   place-items: center;
-  background: radial-gradient(circle at 50% 45%, #05203a, #010a14 70%);
-  color: #cfe8ff;
+  /* Windows 7 boot screen: black, glowing flag orb, "Starting Windows" */
+  background: #000000;
+  color: #ffffff;
   font-family: "Segoe UI", Arial, sans-serif;
   animation: w7-fade 200ms ease;
 }
@@ -1488,4 +1490,241 @@
     animation-duration: 1ms !important;
     transition-duration: 1ms !important;
   }
+}
+
+/* =========================================================
+   Windows XP Luna override — original recreation, not Win7 Aero
+   XP: Tahoma, blue Luna taskbar/windows, green Start button,
+   Bliss-style wallpaper, black boot screen with XP progress.
+   ========================================================= */
+.w7 {
+  font-family: Tahoma, Verdana, Geneva, Arial, sans-serif;
+}
+.w7-boot {
+  font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+.w7-boot-title {
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  text-shadow: none;
+  animation: none;
+}
+.w7-boot-bar {
+  width: 150px;
+  height: 14px;
+  border: 1px solid #8a8a8a;
+  border-radius: 2px;
+  background: #000;
+}
+.w7-boot-bar > i {
+  width: 18px;
+  border-radius: 0;
+  background: #3b7ddb;
+  animation: w7-sweep 1.4s linear infinite;
+}
+
+/* Desktop icon labels: XP white text with drop shadow */
+.w7-icon-label {
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+/* Luna window frame: solid blue border, no Aero glass */
+.w7-window {
+  border-radius: 8px 8px 3px 3px;
+  padding: 0;
+  background: #0058e6;
+  border: 1px solid #0831d9;
+  backdrop-filter: none;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.55);
+}
+.w7-window.is-inactive {
+  background: #7a8fb5;
+  border-color: #6a7fa8;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+.w7-title {
+  height: 28px;
+  border-radius: 8px 8px 0 0;
+  background: linear-gradient(180deg, #0997ff 0%, #0053ee 8%, #0050ee 40%, #06f 100%);
+  box-shadow: none;
+}
+.w7-title::after {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0));
+}
+.is-inactive .w7-title {
+  background: linear-gradient(180deg, #b5c4e0 0%, #8fa0c0 50%, #7a8fb5 100%);
+}
+.w7-title-text {
+  background: none;
+  box-shadow: none;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+.is-inactive .w7-title-text {
+  color: #fff;
+}
+.w7-body {
+  margin: 0 3px 3px;
+  border: 1px solid #0831d9;
+  border-radius: 0;
+  background: #fff;
+}
+
+/* XP caption buttons: silver min/max, red close, square */
+.w7-cap {
+  width: 21px;
+  height: 21px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #3a7bd5, #0050ee);
+  color: #fff;
+  box-shadow: none;
+}
+.w7-cap:hover {
+  background: linear-gradient(180deg, #5a9bf0, #2a6df5);
+  border-color: #fff;
+}
+.w7-cap-close {
+  width: 21px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #f0a090, #d64533);
+  border-color: #fff;
+  color: #fff;
+}
+.w7-cap-close:hover {
+  background: linear-gradient(180deg, #ff7a66, #e02a1a);
+  border-color: #fff;
+  color: #fff;
+}
+
+/* XP Luna taskbar: blue, 30px, lighter top edge */
+.w7-taskbar {
+  height: 30px;
+  padding: 0;
+  background: linear-gradient(180deg, #3c81f3 0%, #245edb 12%, #245edb 60%, #1c4fb8 100%);
+  backdrop-filter: none;
+  border-top: 1px solid #5eacfc;
+  box-shadow: none;
+}
+.w7-tasks {
+  padding: 0 4px;
+}
+.w7-task {
+  height: 24px;
+  border-radius: 3px;
+  color: #fff;
+  background: linear-gradient(180deg, #3980f4, #2a66d6);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.w7-task.is-active {
+  background: linear-gradient(180deg, #2a66d6, #1c4fb8);
+}
+.w7-tray {
+  background: linear-gradient(180deg, #1290e9, #0f7fd4);
+  color: #fff;
+}
+.w7-tray-btn,
+.w7-clock {
+  color: #fff;
+}
+.w7-clock:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* XP green Start button */
+.xp-start {
+  flex: none;
+  height: 30px;
+  min-width: 98px;
+  padding: 0 14px 0 8px;
+  margin: 0 6px 0 0;
+  border: 0;
+  border-radius: 0 12px 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: default;
+  color: #fff;
+  background: linear-gradient(180deg, #5cb85c 0%, #3d9b3d 45%, #2a7d2a 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 2px 0 6px rgba(0, 0, 0, 0.35);
+}
+.xp-start:hover {
+  background: linear-gradient(180deg, #7cc87c 0%, #4db04d 45%, #358f35 100%);
+}
+.xp-start:active,
+.xp-start[aria-expanded="true"] {
+  background: linear-gradient(180deg, #2a7d2a, #3d9b3d);
+}
+.xp-start-text {
+  font-family: Tahoma, Verdana, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+
+/* XP Start menu: blue header, white left, light-blue right, blue footer */
+.w7-start {
+  bottom: 30px;
+  border-radius: 8px 8px 0 0;
+  border: 1px solid #0831d9;
+  background: #ece9d8;
+  backdrop-filter: none;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+}
+.w7-start-head {
+  flex-direction: row-reverse;
+  background: linear-gradient(180deg, #0997ff 0%, #0053ee 50%, #0050ee 100%);
+  padding: 12px;
+}
+.w7-start-name {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+.w7-start-role {
+  color: #d3e5fa;
+}
+.w7-avatar {
+  border-radius: 3px;
+  border: 2px solid #fff;
+  outline: none;
+}
+.w7-start-right {
+  background: #d3e5fa;
+  border-left: 1px solid #95bdee;
+}
+.w7-start-foot {
+  background: linear-gradient(180deg, #0997ff 0%, #0053ee 100%);
+  padding: 8px;
+}
+.w7-flyout {
+  bottom: 32px;
+}
+.w7-icons {
+  bottom: 40px;
+}
+
+/* XP chrome for panes, sidebars and buttons */
+.w7-sidebar {
+  background: #ece9d8;
+}
+.w7-nav {
+  background: linear-gradient(180deg, #f5f2e6, #ece9d8);
+}
+.w7-btn {
+  background: linear-gradient(180deg, #fff, #ece9d8 50%, #ddd8c0);
+  border: 1px solid #003c74;
+  border-radius: 3px;
+  color: #000;
+}
+.w7-btn-default {
+  background: linear-gradient(180deg, #cfe6ff, #8fc2f5);
 }

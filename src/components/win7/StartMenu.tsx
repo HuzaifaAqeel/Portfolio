@@ -58,10 +58,10 @@ export function StartMenu({ onClose }: { onClose: () => void }) {
     play("menu");
     onClose();
     showDialog({
-      title: "Shut Down Portfolio",
+      title: "Turn Off Computer",
       kind: "warn",
-      heading: "You really want to leave this masterpiece?",
-      message: "Before shutting down, maybe hire me? The kettle is already on.",
+      heading: "Leaving already?",
+      message: "Before turning off, check the Contact page if you want to work together — I usually reply within one working day.",
       buttons: [
         { label: "Visit Contact Page", primary: true, action: () => open({ app: "contact" }) },
         { label: "Stay Here" },
@@ -103,7 +103,7 @@ export function StartMenu({ onClose }: { onClose: () => void }) {
           ))}
           <div style={{ flex: 1 }} />
           <button type="button" role="menuitem" className="w7-btn" style={{ margin: "6px 2px 2px" }} onClick={shutDown}>
-            Shut Down
+            Turn Off Computer
           </button>
         </div>
       </div>
@@ -112,7 +112,7 @@ export function StartMenu({ onClose }: { onClose: () => void }) {
         <div className="w7-start-results">
           {results.kind === "winver" ? (
             <button type="button" className="w7-mi" onClick={() => { open({ app: "winver" }); onClose(); }}>
-              <Icon kind="shield" size={22} /> About This Portfolio — Version 7.0
+              <Icon kind="shield" size={22} /> About This Portfolio — Windows XP Edition
             </button>
           ) : (
             <>

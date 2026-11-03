@@ -4,7 +4,7 @@ import wallBlue from "@/assets/wall-blue.jpg";
 import wallDark from "@/assets/wall-dark.jpg";
 import wallNature from "@/assets/wall-nature.jpg";
 import wallMinimal from "@/assets/wall-minimal.jpg";
-import { Icon, type IconKind } from "./icons";
+import { Icon, OrbEmblem, type IconKind } from "./icons";
 import { OSProvider, useOS, type AppKey, type IconSize, type Settings, type WinPayload } from "./os";
 import { Win7Window } from "./Window";
 import { Explorer } from "./Explorer";
@@ -92,7 +92,13 @@ function BootScreen({ done }: { done: boolean }) {
   return (
     <div className={`w7-boot ${done ? "is-done" : ""}`} aria-hidden={done}>
       <div className="w7-boot-inner">
-        <div className="w7-boot-title">Starting Portfolio…</div>
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: 18 }}>
+          <OrbEmblem size={72} />
+        </div>
+        <div className="w7-boot-title">Windows XP</div>
+        <div style={{ marginTop: 10, fontSize: 12, letterSpacing: "0.08em", color: "#9fc3e8" }}>
+          Muhammad Huzaifa Aqeel — Portfolio Edition
+        </div>
         <div className="w7-boot-bar">
           <i />
         </div>
@@ -312,7 +318,7 @@ export function Desktop() {
   return (
     <OSProvider>
       <h1 className="sr-only" style={{ position: "absolute", left: -9999, top: -9999 }}>
-        Zeeshan — Creative Developer &amp; Digital Specialist portfolio
+        Muhammad Huzaifa Aqeel — Full-Stack Web Developer &amp; AI Agentic Developer portfolio
       </h1>
       <DesktopInner />
       {booting && <BootScreen done={bootDone} />}

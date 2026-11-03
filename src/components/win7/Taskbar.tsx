@@ -82,15 +82,14 @@ export function Taskbar({
       <div className="w7-taskbar" role="toolbar" aria-label="Taskbar">
         <button
           type="button"
-          className="w7-orb"
+          className="xp-start"
           aria-label="Start"
           aria-expanded={startOpen}
           title="Start"
           onClick={onToggleStart}
         >
-          <span className="w7-orb-ball">
-            <OrbEmblem />
-          </span>
+          <OrbEmblem size={24} />
+          <span className="xp-start-text">start</span>
         </button>
 
         <div className="w7-tasks">

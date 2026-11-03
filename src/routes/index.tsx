@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Desktop } from "@/components/win7/Desktop";
 
-const title = "Zeeshan — Portfolio Desktop | Creative Developer";
+const title = "Muhammad Huzaifa Aqeel — Portfolio Desktop | Full-Stack & AI Agentic Developer";
 const description =
-  "Explore Zeeshan's portfolio the way you would explore a computer: open folders, browse projects and read case studies inside a hand-built Aero-style desktop.";
+  "Explore Muhammad Huzaifa Aqeel's portfolio the way you would explore a computer: open folders, browse his web and AI projects, and read case studies inside a hand-built Windows XP style desktop.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
