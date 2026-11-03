@@ -1728,3 +1728,154 @@
 .w7-btn-default {
   background: linear-gradient(180deg, #cfe6ff, #8fc2f5);
 }
+
+/* ---------- XP boot animation v2: flag appears, glows, progress blocks ---------- */
+.xp-boot-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 22px;
+  animation: xp-flag-in 1.1s cubic-bezier(0.2, 0.8, 0.3, 1) both, xp-glow 2.2s ease-in-out 1.1s infinite;
+  filter: drop-shadow(0 0 18px rgba(120, 180, 255, 0.55));
+}
+@keyframes xp-flag-in {
+  from {
+    opacity: 0;
+    transform: scale(0.72) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+@keyframes xp-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px rgba(120, 180, 255, 0.35));
+  }
+  50% {
+    filter: drop-shadow(0 0 30px rgba(140, 200, 255, 0.9));
+  }
+}
+.xp-boot-ms {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #fff;
+  animation: xp-flag-in 0.9s ease 0.25s both;
+}
+.xp-boot-edition {
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: #9fc3e8;
+  animation: xp-flag-in 0.9s ease 0.45s both;
+}
+.w7-boot-title {
+  animation: xp-flag-in 0.9s ease 0.35s both;
+}
+.xp-progress {
+  width: 150px;
+  height: 14px;
+  border: 1px solid #8a8a8a;
+  border-radius: 2px;
+  background: #000;
+  overflow: hidden;
+  position: relative;
+}
+.xp-progress > i {
+  position: absolute;
+  top: 1px;
+  width: 14px;
+  height: 10px;
+  border-radius: 1px;
+  background: linear-gradient(180deg, #7db4f5, #316ac5);
+  animation: xp-block-move 1.5s linear infinite;
+}
+.xp-progress > i:nth-child(2) {
+  animation-delay: 0.18s;
+}
+.xp-progress > i:nth-child(3) {
+  animation-delay: 0.36s;
+}
+@keyframes xp-block-move {
+  from {
+    left: -20px;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  to {
+    left: 156px;
+    opacity: 0;
+  }
+}
+
+/* ---------- XP alignment fixes ---------- */
+/* Start button protrudes above/below the 30px taskbar, like XP, centred vertically */
+.xp-start {
+  height: 38px;
+  align-self: center;
+  margin: -4px 6px -4px 0;
+}
+/* Tray and clock must fit inside the 30px taskbar, not overflow it */
+.w7-tray-btn {
+  height: 26px;
+}
+.w7-clock {
+  height: 26px;
+  padding: 0 8px;
+}
+/* Caption buttons centred on the 28px title bar */
+.w7-caption {
+  align-self: center;
+  margin-top: 0;
+}
+/* Start menu sits flush on the taskbar, header content vertically centred */
+.w7-start-head {
+  align-items: center;
+}
+.w7-start-name,
+.w7-start-role {
+  line-height: 1.25;
+}
+/* Taskbar buttons and tray vertically centred */
+.w7-tasks {
+  align-items: center;
+}
+.w7-tray {
+  align-items: center;
+}
+
+/* ---------- XP alignment fixes v2 (from live visual QA) ---------- */
+/* Start menu header: fixed compact height, name left / avatar right, both centred */
+.w7-start-head {
+  height: 66px;
+  flex: none;
+  padding: 0 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+.w7-start-head .w7-avatar {
+  width: 48px;
+  height: 48px;
+  flex: none;
+  margin: 0;
+}
+.w7-start-head > div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* Window caption buttons tight against the right edge, like XP */
+.w7-title {
+  padding: 0 2px 0 7px;
+}
+.w7-caption {
+  gap: 0;
+}
+.w7-cap {
+  border-radius: 2px;
+}

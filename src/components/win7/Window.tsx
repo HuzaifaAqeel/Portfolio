@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from "react"
 import { CapClose, CapMax, CapMin, CapRestore, Icon } from "./icons";
 import { useOS, type WinState } from "./os";
 
-const TASKBAR = 44;
+const TASKBAR = 30; // XP taskbar height (was 44 for the old Win7 taskbar)
 
 export function Win7Window({ win, children }: { win: WinState; children: ReactNode }) {
   const { activeId, focus, close, minimize, toggleMax, update } = useOS();

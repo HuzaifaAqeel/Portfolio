@@ -262,24 +262,23 @@ export function Icon({
   }
 }
 
-/** Start orb emblem: a four-colour flag in the Windows 7 orb style, drawn in code (no logo file). */
+/** Windows XP style flag emblem, drawn in code (original recreation, no logo file).
+ * Four waving panes — red, green, blue, yellow — with the XP perspective wave. */
 export function OrbEmblem({ size = 28 }: { size?: number }) {
+  const h = Math.round((size * 30) / 36);
   return (
-    <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden="true">
-      <defs>
-        <clipPath id="orbFlagClip">
-          <circle cx="16" cy="16" r="13.5" />
-        </clipPath>
-      </defs>
-      <g clipPath="url(#orbFlagClip)">
-        {/* Waving 2x2 flag: red / green / blue / yellow, as on the Windows 7 Start orb */}
-        <path d="M2 3 Q8 1 15 3 L15 15 Q8 13 2 15 Z" fill="#f65314" />
-        <path d="M17 3 Q24 1 30 3 L30 15 Q24 13 17 15 Z" fill="#7cbb00" />
-        <path d="M2 17 Q8 15 15 17 L15 29 Q8 27 2 29 Z" fill="#00a1f1" />
-        <path d="M17 17 Q24 15 30 17 L30 29 Q24 27 17 29 Z" fill="#ffbb00" />
-        <ellipse cx="16" cy="10" rx="14" ry="5" fill="#ffffff" opacity="0.22" />
+    <svg width={size} height={h} viewBox="0 0 36 30" aria-hidden="true">
+      <g>
+        {/* Top row: panes rise toward the right, as on the XP flag */}
+        <path d="M1 4 Q9 1 17 3.5 L17 14.5 Q9 12 1 14.5 Z" fill="#f65314" />
+        <path d="M18.5 3.5 Q27 1 35 4 L35 14.5 Q27 12 18.5 14.5 Z" fill="#7cbb00" />
+        {/* Bottom row: panes dip toward the right */}
+        <path d="M1 16 Q9 13.5 17 16 L17 27 Q9 24.5 1 27 Z" fill="#00a1f1" />
+        <path d="M18.5 16 Q27 13.5 35 16 L35 27 Q27 24.5 18.5 27 Z" fill="#ffbb00" />
+        {/* Gloss sweep across the flag */}
+        <path d="M1 4 Q18 0 35 4 L35 8 Q18 4 1 8 Z" fill="#ffffff" opacity="0.28" />
+        <path d="M6 4 Q10 12 8 27 L4 27 Q6 14 3 8 Z" fill="#ffffff" opacity="0.18" />
       </g>
-      <circle cx="16" cy="16" r="13.5" fill="none" stroke="#ffffff" strokeOpacity="0.35" strokeWidth="1" />
     </svg>
   );
 }

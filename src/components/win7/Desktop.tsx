@@ -92,14 +92,15 @@ function BootScreen({ done }: { done: boolean }) {
   return (
     <div className={`w7-boot ${done ? "is-done" : ""}`} aria-hidden={done}>
       <div className="w7-boot-inner">
-        <div style={{ display: "flex", justifyContent: "center", marginBottom: 18 }}>
-          <OrbEmblem size={72} />
+        <div className="xp-boot-logo">
+          <OrbEmblem size={132} />
         </div>
+        <div className="xp-boot-ms">Microsoft</div>
         <div className="w7-boot-title">Windows XP</div>
-        <div style={{ marginTop: 10, fontSize: 12, letterSpacing: "0.08em", color: "#9fc3e8" }}>
-          Muhammad Huzaifa Aqeel — Portfolio Edition
-        </div>
-        <div className="w7-boot-bar">
+        <div className="xp-boot-edition">Muhammad Huzaifa Aqeel — Portfolio Edition</div>
+        <div className="w7-boot-bar xp-progress">
+          <i />
+          <i />
           <i />
         </div>
       </div>
