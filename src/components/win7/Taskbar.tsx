@@ -88,7 +88,7 @@ export function Taskbar({
           title="Start"
           onClick={onToggleStart}
         >
-          <OrbEmblem size={24} />
+          <OrbEmblem size={32} />
           <span className="xp-start-text">start</span>
         </button>
 

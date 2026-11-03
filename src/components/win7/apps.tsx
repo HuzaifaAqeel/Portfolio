@@ -1,6 +1,7 @@
-/** Portfolio "applications" that live inside Win7 windows. */
+/** Portfolio "applications" that live inside XP windows. */
 import { useMemo, useState } from "react";
 import profileImg from "@/assets/profile.jpg";
+import xpLogo from "@/assets/xp-logo.png";
 import {
   categories,
   categoryName,
@@ -610,7 +611,7 @@ export function PersonalizeWindow({ wallpapers }: { wallpapers: Record<Settings[
 export function WinverWindow() {
   return (
     <div className="w7-pane" style={{ display: "flex", gap: 14 }}>
-      <Icon kind="shield" size={54} />
+      <img src={xpLogo} alt="Microsoft Windows XP logo" width={110} loading="lazy" style={{ width: 110, height: "auto", objectFit: "contain", alignSelf: "flex-start" }} />
       <div>
         <h1 className="w7-h1" style={{ fontSize: 18 }}>About This Portfolio</h1>
         <p className="w7-p" style={{ marginTop: 6 }}>
@@ -621,7 +622,7 @@ export function WinverWindow() {
         </p>
         <p className="w7-p" style={{ marginTop: 10, color: "#6b7c8c" }}>
           Every window, button and glass edge here is hand-written CSS. The wallpaper and Start orb
-          are original recreations in the Windows XP style, drawn in code — not Microsoft files.
+          use the original Windows XP flag, logo and Bliss wallpaper, as requested for this personal portfolio.
         </p>
       </div>
     </div>
