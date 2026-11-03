@@ -308,8 +308,10 @@ export function Desktop() {
     } catch {
       /* ignore */
     }
-    const t = window.setTimeout(() => setBootDone(true), 1500);
-    const t2 = window.setTimeout(() => setBooting(false), 1950);
+    // 5-second boot: fade-out starts at 4.58s and runs 0.42s, so the screen
+    // clears at exactly 5.00s.
+    const t = window.setTimeout(() => setBootDone(true), 4580);
+    const t2 = window.setTimeout(() => setBooting(false), 5000);
     return () => {
       window.clearTimeout(t);
       window.clearTimeout(t2);
