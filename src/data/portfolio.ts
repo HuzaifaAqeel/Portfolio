@@ -26,6 +26,10 @@ export interface Project {
    * projects have no previewUrl — their window shows their real README
    * instead, never a mock screenshot. */
   previewUrl?: string;
+  /** Captured homepage screenshot, used only when the site itself blocks
+   * embedding (X-Frame-Options / frame-ancestors) so its window still shows
+   * the actual site visibly instead of a blank frame. */
+  previewImage?: string;
   caseStudyUrl?: string;
   githubUrl?: string;
   featured?: boolean;
@@ -529,17 +533,17 @@ export const projects: Project[] = [
     year: "Client work",
     tagline: "Online store listed on Huzaifa's HeyLink.",
     description:
-      "Gemuro online store, listed on Huzaifa's HeyLink. Shown here with its live preview. Note: this store runs on Shopify, not WordPress — it is included because Huzaifa listed it for this folder.",
+      "Gemuro online store, listed on Huzaifa's HeyLink. Note: this store runs on Shopify, not WordPress — it is included because Huzaifa listed it for this folder. Gemuro blocks embedding, so its preview here is a captured view of its real homepage.",
     problem: "A business website, listed in Huzaifa's portfolio.",
     solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
     technologies: ["Shopify"],
     role: "Client site in Huzaifa's portfolio.",
     features: ["Live website preview above", "Open live site from the preview bar"],
-    result: "Live at gemuro.com, shown here with its live preview.",
+    result: "Live at gemuro.com, shown here with a captured view of its real homepage (the site blocks embedding).",
     tags: ["shopify", "ecommerce", "web"],
     screenshots: [],
     liveUrl: "https://gemuro.com",
-    previewUrl: "https://gemuro.com",
+    previewImage: "/preview-gemuro.jpg",
   },
   {
     id: "wp-purejoy",
@@ -548,17 +552,17 @@ export const projects: Project[] = [
     year: "Client work",
     tagline: "Pure Joy website (purejoy.pk).",
     description:
-      "Pure Joy website, listed on Huzaifa's HeyLink. Shown here with its live preview.",
+      "Pure Joy website, listed on Huzaifa's HeyLink. Pure Joy blocks embedding, so its preview here is a captured view of its real homepage.",
     problem: "A business website, listed in Huzaifa's WordPress portfolio.",
     solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
     technologies: ["WordPress"],
     role: "WordPress client site in Huzaifa's portfolio.",
     features: ["Live website preview above", "Open live site from the preview bar"],
-    result: "Live at www.purejoy.pk, shown here with its live preview.",
+    result: "Live at www.purejoy.pk, shown here with a captured view of its real homepage (the site blocks embedding).",
     tags: ["wordpress", "web"],
     screenshots: [],
     liveUrl: "https://www.purejoy.pk",
-    previewUrl: "https://www.purejoy.pk",
+    previewImage: "/preview-purejoy.jpg",
   },
   {
     id: "wp-apkshop",

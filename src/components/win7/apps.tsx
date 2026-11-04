@@ -60,6 +60,27 @@ function ProjectPreview({ project }: { project: Project }) {
     };
   }, [project.previewUrl, repo]);
 
+  if (project.previewImage) {
+    return (
+      <section>
+        <h2 className="w7-h2">Preview — the actual website</h2>
+        <div className="w7-preview">
+          <div className="w7-preview-bar">
+            <span className="w7-preview-url" title={project.liveUrl}>{project.liveUrl}</span>
+            <button type="button" className="w7-btn w7-btn-default" onClick={() => window.open(project.liveUrl!, "_blank", "noopener,noreferrer")}>
+              Open live site
+            </button>
+          </div>
+          <img src={project.previewImage} alt={`Homepage of ${project.title}`} className="w7-preview-frame" style={{ height: "auto", objectFit: "cover" }} />
+          <p className="w7-p" style={{ fontSize: 11, color: "#6b7c8c", marginTop: 6 }}>
+            This site blocks embedding, so here is a captured view of its real homepage instead of a
+            blank frame — use “Open live site” to browse it in full.
+          </p>
+        </div>
+      </section>
+    );
+  }
+
   if (project.previewUrl) {
     return (
       <section>
