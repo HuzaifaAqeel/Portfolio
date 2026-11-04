@@ -1,5 +1,5 @@
 /** Portfolio "applications" that live inside XP windows. */
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import profileImg from "@/assets/profile.jpg";
 import xpLogo from "@/assets/xp-logo.png";
 import {
@@ -19,32 +19,101 @@ import { useOS, type Settings, type WinState } from "./os";
 
 /* ------------------------------- Project ------------------------------- */
 
+/** Real preview for a project window.
+ * - If the project has a verified live site, embed that site itself in an
+ *   iframe — the actual website, not a mock image.
+ * - Otherwise (code-only projects: agents, RAG labs, eval harnesses), show
+ *   the project's real README fetched from GitHub — its actual content —
+ *   with a note that it has no public live site. Never a fake screenshot.
+ * GitHub pages block framing, so they are never iframed; the README fetch
+ * uses raw.githubusercontent.com, which serves the file directly. */
+function ProjectPreview({ project }: { project: Project }) {
+  const [frameKey, setFrameKey] = useState(0);
+  const [readme, setReadme] = useState<string | null>(null);
+  const [readmeState, setReadmeState] = useState<"idle" | "loading" | "done" | "failed">("idle");
+
+  const repo = project.githubUrl?.replace(/\/$/, "").split("/").pop() ?? "";
+
+  useEffect(() => {
+    if (project.previewUrl || !repo) return;
+    let cancelled = false;
+    setReadmeState("loading");
+    (async () => {
+      for (const branch of ["main", "master"]) {
+        try {
+          const res = await fetch(`https://raw.githubusercontent.com/HuzaifaAqeel/${repo}/${branch}/README.md`);
+          if (!res.ok) continue;
+          const text = await res.text();
+          if (!cancelled) {
+            setReadme(text.slice(0, 6000));
+            setReadmeState("done");
+          }
+          return;
+        } catch {
+          /* try the next branch, then fail below */
+        }
+      }
+      if (!cancelled) setReadmeState("failed");
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [project.previewUrl, repo]);
+
+  if (project.previewUrl) {
+    return (
+      <section>
+        <h2 className="w7-h2">Live preview — the actual website</h2>
+        <div className="w7-preview">
+          <div className="w7-preview-bar">
+            <span className="w7-preview-url" title={project.previewUrl}>{project.previewUrl}</span>
+            <button type="button" className="w7-btn" onClick={() => setFrameKey((k) => k + 1)}>Reload preview</button>
+            <button type="button" className="w7-btn w7-btn-default" onClick={() => window.open(project.previewUrl!, "_blank", "noopener,noreferrer")}>
+              Open live site
+            </button>
+          </div>
+          <iframe
+            key={frameKey}
+            src={project.previewUrl}
+            title={`Live preview of ${project.title}`}
+            className="w7-preview-frame"
+            loading="lazy"
+          />
+          <p className="w7-p" style={{ fontSize: 11, color: "#6b7c8c", marginTop: 6 }}>
+            If this frame is blank, the site is blocking embedding — use “Open live site” to see it in full.
+          </p>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section>
+      <h2 className="w7-h2">Preview — actual project README</h2>
+      <p className="w7-p" style={{ fontSize: 12, color: "#6b7c8c" }}>
+        This project has no public live website, so instead of a mock screenshot here is its real README
+        from GitHub{repo ? ` (${repo})` : ""}.
+      </p>
+      <div className="w7-readme">
+        {readmeState === "loading" && <p className="w7-p">Loading README…</p>}
+        {readmeState === "done" && readme && <pre>{readme}</pre>}
+        {readmeState === "failed" && (
+          <p className="w7-p">
+            The README could not be loaded here — open the GitHub link below to read the real project.
+          </p>
+        )}
+      </div>
+    </section>
+  );
+}
+
 export function ProjectWindow({ win }: { win: WinState }) {
   const project = projects.find((p) => p.id === win.payload?.projectId);
-  const { showDialog } = useOS();
   if (!project) return <div className="w7-pane">This project could not be found.</div>;
 
   const openReal = (url: string) => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
-  const notReal = (what: string) =>
-    showDialog({
-      title: "Portfolio",
-      kind: "info",
-      heading: `${what} is not linked yet`,
-      message:
-        "This project has no live link attached yet. Its GitHub link, where shown, opens normally.",
-      buttons: [{ label: "OK", primary: true }],
-    });
-
-  const variant =
-    project.category === "data" || project.category === "finance"
-      ? "chart"
-      : project.category === "uiux"
-        ? "mobile"
-        : project.category === "other"
-          ? "doc"
-          : "app";
 
   return (
     <div className="w7-pane">
@@ -52,7 +121,7 @@ export function ProjectWindow({ win }: { win: WinState }) {
       <h1 className="w7-h1" style={{ marginBottom: 4 }}>{project.title}</h1>
       <p className="w7-p" style={{ fontSize: 14, color: "#2c5b86", marginBottom: 14 }}>{project.tagline}</p>
 
-      <MockShot seed={project.title.length} height={240} variant={variant} label={`${project.title} preview`} />
+      <ProjectPreview project={project} />
 
       <p className="w7-p" style={{ marginTop: 14 }}>{project.description}</p>
 
@@ -97,18 +166,6 @@ export function ProjectWindow({ win }: { win: WinState }) {
       <section className="w7-band" style={{ marginTop: 14 }}>
         <h2 className="w7-h2">Result</h2>
         <p className="w7-p">{project.result}</p>
-      </section>
-
-      <section style={{ marginTop: 16 }}>
-        <h2 className="w7-h2">Gallery</h2>
-        <div style={{ display: "grid", gap: 10, gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", marginTop: 6 }}>
-          {project.screenshots.map((s, i) => (
-            <figure key={s}>
-              <MockShot seed={i + 2} height={110} variant={i % 2 ? "chart" : variant} label={s} />
-              <figcaption style={{ fontSize: 11, color: "#6b7c8c", marginTop: 4 }}>{s}</figcaption>
-            </figure>
-          ))}
-        </div>
       </section>
 
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 20 }}>

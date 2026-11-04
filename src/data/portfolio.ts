@@ -21,6 +21,11 @@ export interface Project {
   tags: string[];
   screenshots: string[];
   liveUrl?: string;
+  /** A URL that can actually be embedded as a live preview (iframe). Only
+   * set when the site is verified live and does not block framing. Code-only
+   * projects have no previewUrl — their window shows their real README
+   * instead, never a mock screenshot. */
+  previewUrl?: string;
   caseStudyUrl?: string;
   githubUrl?: string;
   featured?: boolean;
@@ -99,6 +104,7 @@ export const projects: Project[] = [
     tags: ["agency", "ai automation", "tanstack", "react", "web"],
     screenshots: ["Home and services", "Process section", "Calculator and booking"],
     liveUrl: "https://thehexasystems.com",
+    previewUrl: "https://thehexasystems.com",
     githubUrl: "https://github.com/HuzaifaAqeel/TheHexaSystem",
     featured: true,
   },
@@ -439,6 +445,8 @@ export const projects: Project[] = [
       "Live at huzaifaaqeel.vercel.app, with its code on GitHub for future edits.",
     tags: ["portfolio", "react", "typescript", "css", "web", "windows"],
     screenshots: ["Desktop with open windows", "Explorer grid", "Start menu"],
+    liveUrl: "https://huzaifaaqeel.vercel.app",
+    previewUrl: "https://huzaifaaqeel.vercel.app",
     githubUrl: "https://github.com/HuzaifaAqeel/Portfolio",
     featured: true,
   },
