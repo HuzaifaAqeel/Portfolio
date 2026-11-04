@@ -48,6 +48,7 @@ interface DeskItem {
 
 const deskItems: DeskItem[] = [
   { id: "projects", label: "My Projects", icon: "projects", app: "projects" },
+  { id: "wordpress", label: "WordPress", icon: "folder", app: "projects", payload: { category: "wordpress" } },
   { id: "about", label: "About Me", icon: "about", app: "about" },
   { id: "skills", label: "Skills", icon: "skills", app: "skills" },
   { id: "experience", label: "Experience", icon: "experience", app: "experience" },

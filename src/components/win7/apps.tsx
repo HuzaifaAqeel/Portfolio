@@ -87,6 +87,19 @@ function ProjectPreview({ project }: { project: Project }) {
     );
   }
 
+  if (!repo) {
+    return (
+      <section>
+        <h2 className="w7-h2">Preview</h2>
+        <p className="w7-p" style={{ fontSize: 12, color: "#6b7c8c" }}>
+          This is a collection of client work rather than a single public site, so there is no single
+          live preview to embed here — the work, tools and results are described below, with no mock
+          screenshot.
+        </p>
+      </section>
+    );
+  }
+
   return (
     <section>
       <h2 className="w7-h2">Preview — actual project README</h2>

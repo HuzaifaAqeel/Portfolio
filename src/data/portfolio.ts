@@ -33,6 +33,7 @@ export interface Project {
 
 export type CategoryId =
   | "web"
+  | "wordpress"
   | "ai"
   | "finance"
   | "uiux"
@@ -72,6 +73,7 @@ export const owner = {
 
 export const categories: Category[] = [
   { id: "web", name: "Web Development", blurb: "Full-stack sites, dashboards, landing pages and portals" },
+  { id: "wordpress", name: "WordPress", blurb: "WordPress & WooCommerce client websites, each with a live preview" },
   { id: "ai", name: "AI & Automation", blurb: "Agents, RAG assistants, voice pipelines and workflow automation" },
   { id: "data", name: "Data & Retrieval", blurb: "Hybrid search, vector stores, evaluation and pipelines" },
   { id: "business", name: "Business Projects", blurb: "Agency work, client platforms and internal tools" },
@@ -399,7 +401,7 @@ export const projects: Project[] = [
   {
     id: "wordpress-woocommerce",
     title: "WordPress & WooCommerce Client Sites",
-    category: "web",
+    category: "wordpress",
     year: "2024",
     tagline: "Custom themes, Elementor builds, WooCommerce shops and migrations",
     description:
