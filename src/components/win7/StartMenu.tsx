@@ -15,7 +15,7 @@ interface MenuEntry {
 
 const leftItems: MenuEntry[] = [
   { label: "My Projects", icon: "projects", app: "projects", strong: true },
-  { label: "WordPress", icon: "folder", app: "projects", payload: { category: "wordpress" } },
+  // NOTE (Huzaifa, 2026-11-04): WordPress lives only inside My Projects.
   { label: "Recent Projects", icon: "folder-open", app: "projects", payload: { category: "web" } },
   { label: "Featured Work", icon: "star", app: "projects", payload: { featured: true } },
   { label: "Resume", icon: "resume", app: "resume" },

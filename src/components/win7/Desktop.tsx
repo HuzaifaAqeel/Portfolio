@@ -48,7 +48,8 @@ interface DeskItem {
 
 const deskItems: DeskItem[] = [
   { id: "projects", label: "My Projects", icon: "projects", app: "projects" },
-  { id: "wordpress", label: "WordPress", icon: "folder", app: "projects", payload: { category: "wordpress" } },
+  // NOTE (Huzaifa, 2026-11-04): the WordPress folder lives ONLY inside My
+  // Projects, not as a desktop icon — do not re-add a desktop WordPress item.
   { id: "about", label: "About Me", icon: "about", app: "about" },
   { id: "skills", label: "Skills", icon: "skills", app: "skills" },
   { id: "experience", label: "Experience", icon: "experience", app: "experience" },
