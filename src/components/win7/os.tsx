@@ -23,6 +23,7 @@ export type AppKey =
   | "recycle"
   | "personalize"
   | "winver"
+  | "disclaimer"
   | "browser";
 
 export interface WinPayload {
@@ -117,6 +118,7 @@ const APP_DEFAULTS: Record<AppKey, { title: string; icon: IconKind; w: number; h
   recycle: { title: "Recycle Bin", icon: "recycle", w: 660, h: 440 },
   personalize: { title: "Personalization — Control Panel", icon: "settings", w: 720, h: 500 },
   winver: { title: "About This Portfolio", icon: "info", w: 470, h: 330 },
+  disclaimer: { title: "Disclaimer", icon: "info", w: 520, h: 430 },
   browser: { title: "Portfolio Browser", icon: "browser", w: 780, h: 560 },
 };
 

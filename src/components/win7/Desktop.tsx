@@ -12,6 +12,7 @@ import {
   AboutWindow,
   BrowserWindow,
   ContactWindow,
+  DisclaimerWindow,
   ExperienceWindow,
   PersonalizeWindow,
   ProjectWindow,
@@ -83,6 +84,8 @@ function WindowContent({ winId }: { winId: string }) {
       return <PersonalizeWindow wallpapers={wallpapers} />;
     case "winver":
       return <WinverWindow />;
+    case "disclaimer":
+      return <DisclaimerWindow />;
     case "browser":
       return <BrowserWindow />;
     default:

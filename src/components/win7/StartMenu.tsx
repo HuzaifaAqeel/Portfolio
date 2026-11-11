@@ -93,6 +93,10 @@ export function StartMenu({ onClose }: { onClose: () => void }) {
             <Icon kind="info" size={24} />
             About This Portfolio
           </button>
+          <button type="button" role="menuitem" className="w7-mi" onClick={() => { open({ app: "disclaimer" }); onClose(); }}>
+            <Icon kind="shield" size={24} />
+            Disclaimer
+          </button>
         </div>
 
         <div className="w7-start-right">

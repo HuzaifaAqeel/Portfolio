@@ -745,6 +745,37 @@ export function WinverWindow() {
   );
 }
 
+/* ----------------------------- disclaimer ------------------------------ */
+
+export function DisclaimerWindow() {
+  return (
+    <div className="w7-pane">
+      <h1 className="w7-h1" style={{ fontSize: 18 }}>Disclaimer</h1>
+      <p className="w7-p" style={{ marginTop: 8 }}>
+        This is a personal portfolio website, made to present the work of Muhammad Huzaifa Aqeel,
+        a web and AI developer.
+      </p>
+      <p className="w7-p" style={{ marginTop: 8 }}>
+        This portfolio is not affiliated with, endorsed by, or connected to Microsoft in any way,
+        and should not be confused with Microsoft&apos;s Windows operating system or products.
+      </p>
+      <p className="w7-p" style={{ marginTop: 8 }}>
+        Microsoft, Windows and Windows XP are trademarks of the Microsoft group of companies.
+        All rights to those trademarks, the Windows XP logo and the Bliss wallpaper belong to
+        their respective owners. The Windows XP flag, logo and wallpaper are used here only as
+        a visual theme for this personal portfolio.
+      </p>
+      <p className="w7-p" style={{ marginTop: 8 }}>
+        All project work, client websites and content shown in this portfolio belong to their
+        respective owners.
+      </p>
+      <p className="w7-p" style={{ marginTop: 8 }}>
+        Contact: {owner.email}
+      </p>
+    </div>
+  );
+}
+
 /* ------------------------------- Browser ------------------------------- */
 
 export function BrowserWindow() {
