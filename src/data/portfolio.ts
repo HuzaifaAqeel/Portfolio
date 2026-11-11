@@ -773,7 +773,6 @@ export const projects: Project[] = [
     previewOnly: true,
   },
 ];
-];
 
 export interface SkillGroup {
   name: string;
