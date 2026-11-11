@@ -826,22 +826,6 @@ export interface Job {
 
 export const experience: Job[] = [
   {
-    company: "TheHexaSystem",
-    role: "Founder — AI Automation Agency",
-    duration: "2025 — Present",
-    summary:
-      "Founder of his own AI automation agency, building client systems and the agency site itself, from services and funnels to voice agents and automation.",
-    responsibilities: [
-      "Own the agency site, services, process and booking flow end to end",
-      "Build AI automation, GoHighLevel funnels and client workflows",
-      "Handle client requirements, revisions and delivery directly",
-    ],
-    achievements: [
-      "Agency site live at thehexasystems.com with a full design-system codebase",
-      "GoHighLevel qualification funnels and automation work delivered for clients",
-    ],
-  },
-  {
     company: "Robox AI",
     role: "AI Automation Engineer",
     duration: "2025 · 6 months",
