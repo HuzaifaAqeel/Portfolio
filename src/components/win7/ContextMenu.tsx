@@ -39,7 +39,7 @@ export function DesktopContextMenu(props: DesktopMenuProps) {
   }, [x, y]);
 
   useEffect(() => {
-    // Close only on a pointer press OUTSIDE any menu — never on a press
+    // Close only on a pointer press OUTSIDE any menu - never on a press
     // inside the main menu or its submenu (stopPropagation alone was not
     // reliable here, so check the actual target).
     const away = (e: PointerEvent) => {

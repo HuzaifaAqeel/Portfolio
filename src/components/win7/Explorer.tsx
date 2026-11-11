@@ -75,7 +75,7 @@ export function Explorer({ win }: { win: WinState }) {
         : [];
 
   const openProject = (p: Project) =>
-    open({ app: "project", title: `${p.title} — Properties`, icon: "document", payload: { projectId: p.id } });
+    open({ app: "project", title: `${p.title} - Properties`, icon: "document", payload: { projectId: p.id } });
 
   const itemProps = (id: string, onOpen: () => void) => ({
     "aria-selected": selected === id,
@@ -182,7 +182,7 @@ export function Explorer({ win }: { win: WinState }) {
         <div className="w7-content" ref={contentRef}>
           {searching && (
             <div style={{ padding: "8px 12px 0", color: "#4a5a6a" }}>
-              Search results for “{query}” — {results.length} item{results.length === 1 ? "" : "s"}
+              Search results for “{query}” - {results.length} item{results.length === 1 ? "" : "s"}
             </div>
           )}
           <div className="w7-grid">
@@ -200,7 +200,7 @@ export function Explorer({ win }: { win: WinState }) {
                     kind: "warn",
                     heading: "Windows cannot delete this folder",
                     message:
-                      "Windows cannot delete “" + c.name + "” because your career depends on it.",
+                      "Windows cannot delete “" + c.name + "” because your career depends on it. Huzaifa built this folder project by project. Deleting it would be like deleting the journey, and the journey is the whole point.",
                     buttons: [{ label: "OK", primary: true }],
                   });
                 }}

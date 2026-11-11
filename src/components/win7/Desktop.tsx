@@ -50,7 +50,7 @@ interface DeskItem {
 const deskItems: DeskItem[] = [
   { id: "projects", label: "My Projects", icon: "projects", app: "projects" },
   // NOTE (Huzaifa, 2026-11-04): the WordPress folder lives ONLY inside My
-  // Projects, not as a desktop icon — do not re-add a desktop WordPress item.
+  // Projects, not as a desktop icon - do not re-add a desktop WordPress item.
   { id: "about", label: "About Me", icon: "about", app: "about" },
   { id: "skills", label: "Skills", icon: "skills", app: "skills" },
   { id: "experience", label: "Experience", icon: "experience", app: "experience" },
@@ -102,7 +102,7 @@ function BootScreen({ done }: { done: boolean }) {
         </div>
         <div className="xp-boot-ms">Microsoft</div>
         <div className="w7-boot-title">Windows XP</div>
-        <div className="xp-boot-edition">Muhammad Huzaifa Aqeel — Portfolio Edition</div>
+        <div className="xp-boot-edition">Muhammad Huzaifa Aqeel - Portfolio Edition</div>
         <div className="w7-boot-bar xp-progress">
           <i />
           <i />
@@ -161,8 +161,8 @@ function DesktopInner() {
           heading: "Windows cannot delete this item",
           message:
             item?.id === "projects"
-              ? "Windows cannot delete “My Projects” because your career depends on it."
-              : `“${item?.label ?? "This item"}” is required by the portfolio and cannot be removed. Nice try.`,
+              ? "Windows cannot delete “My Projects” because your career depends on it. Huzaifa built this work project by project, and it is not going anywhere. Keep going, one shipped project at a time."
+              : `“${item?.label ?? "This item"}” is part of the portfolio and cannot be removed. Nice try. Huzaifa does not delete his work, he improves it.`,
           buttons: [{ label: "OK", primary: true }],
         });
       }
@@ -174,6 +174,8 @@ function DesktopInner() {
   const refresh = () => {
     setRefreshing(true);
     play("menu");
+    setSortNote("Refreshed. Same great work, shinier pixels. Huzaifa ships, then ships again.");
+    window.setTimeout(() => setSortNote(null), 3000);
     window.setTimeout(() => setRefreshing(false), 360);
   };
 
@@ -212,7 +214,7 @@ function DesktopInner() {
             type="button"
             className="w7-icon"
             aria-selected={selected === item.id}
-            title={`${item.label} — double-click to open`}
+            title={`${item.label} - double-click to open`}
             onClick={() => setSelected(item.id)}
             onDoubleClick={() => openItem(item)}
             onPointerUp={(e) => {
@@ -236,7 +238,7 @@ function DesktopInner() {
         <div className="w7-balloon" role="status">
           <strong style={{ color: "#14456e" }}>Welcome to my portfolio.</strong>
           <p className="w7-p" style={{ marginTop: 4 }}>
-            Double-click “My Projects” to explore my work.
+            Every expert was once a beginner who refused to quit. Double-click “My Projects” to see what refusing to quit builds.
           </p>
         </div>
       )}
@@ -253,11 +255,15 @@ function DesktopInner() {
           y={menu.y}
           iconSize={settings.iconSize}
           onClose={() => setMenu(null)}
-          onIconSize={(s) => setSettings({ iconSize: s })}
+          onIconSize={(s) => {
+            setSettings({ iconSize: s });
+            setSortNote("Icons resized. Big dreams, bigger icons. Huzaifa designs every screen to fit, big or small.");
+            window.setTimeout(() => setSortNote(null), 3000);
+          }}
           onRefresh={refresh}
           onPersonalize={() => open({ app: "personalize" })}
           onSort={(how) => {
-            setSortNote(`Sorted by ${how}. My Projects stays first either way.`);
+            setSortNote(`Sorted by ${how}. Huzaifa's best work always finds its way to the top, just like his projects do.`);
             window.setTimeout(() => setSortNote(null), 3000);
           }}
           onNew={(what) =>
@@ -266,7 +272,7 @@ function DesktopInner() {
               kind: "info",
               heading: `Cannot create ${what.toLowerCase()}`,
               message:
-                "This desktop is read-only — everything you can see is portfolio content. Feel free to rearrange the wallpaper and icon size instead.",
+                "This desktop is read-only, but your ideas are not. Every project here started as one blank folder and one stubborn idea. Huzaifa turned his into 30+ AI systems and real client websites. Rearrange the wallpaper and icon size instead, or open My Projects to see what stubborn ideas become.",
               buttons: [
                 { label: "Personalize", primary: true, action: () => open({ app: "personalize" }) },
                 { label: "Cancel" },
@@ -312,7 +318,7 @@ export function Desktop() {
   return (
     <OSProvider>
       <h1 className="sr-only" style={{ position: "absolute", left: -9999, top: -9999 }}>
-        Muhammad Huzaifa Aqeel — Full-Stack Web Developer &amp; AI Agentic Developer portfolio
+        Muhammad Huzaifa Aqeel - Full-Stack Web Developer &amp; AI Agentic Developer portfolio
       </h1>
       <DesktopInner />
       {booting && <BootScreen done={bootDone} />}

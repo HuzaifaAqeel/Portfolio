@@ -132,7 +132,7 @@ export function Taskbar({
           <button
             type="button"
             className="w7-tray-btn"
-            title={settings.sound ? "Sounds on — click to mute" : "Sounds muted — click to enable"}
+            title={settings.sound ? "Sounds on, click to mute" : "Sounds muted, click to enable"}
             aria-label={settings.sound ? "Mute interface sounds" : "Unmute interface sounds"}
             onClick={() => setSettings({ sound: !settings.sound })}
           >
@@ -145,14 +145,14 @@ export function Taskbar({
               )}
             </svg>
           </button>
-          <button type="button" className="w7-tray-btn" title="Network — connected" aria-label="Network status">
+          <button type="button" className="w7-tray-btn" title="Network: connected" aria-label="Network status">
             <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
               {[0, 1, 2, 3].map((i) => (
                 <rect key={i} x={1 + i * 4} y={12 - i * 3} width="2.6" height={2 + i * 3} fill="currentColor" opacity={i > 2 ? 0.45 : 1} />
               ))}
             </svg>
           </button>
-          <button type="button" className="w7-tray-btn" title="Power — plugged in" aria-label="Power status">
+          <button type="button" className="w7-tray-btn" title="Power: plugged in" aria-label="Power status">
             <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
               <rect x="1" y="5" width="11" height="6" rx="1" fill="none" stroke="currentColor" strokeWidth="1.2" />
               <rect x="2.5" y="6.5" width="7" height="3" fill="currentColor" />
@@ -169,7 +169,7 @@ export function Taskbar({
                 title: "Notification Area",
                 kind: "info",
                 heading: "Nothing hidden here",
-                message: "Two abandoned side projects and an update that has been pending since 2014.",
+                message: "Two abandoned side projects and an update that has been pending since 2014. Even Huzaifa's unfinished ideas refuse to give up.",
                 buttons: [{ label: "OK", primary: true }],
               })
             }

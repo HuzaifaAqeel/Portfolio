@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Desktop } from "@/components/win7/Desktop";
 
-const title = "Muhammad Huzaifa Aqeel — Portfolio Desktop | Full-Stack & AI Agentic Developer";
+const title = "Muhammad Huzaifa Aqeel - Portfolio Desktop | Full-Stack & AI Agentic Developer";
 const description =
   "Explore Muhammad Huzaifa Aqeel's portfolio the way you would explore a computer: open folders, browse his web and AI projects, and read case studies inside a hand-built Windows XP style desktop.";
 

@@ -62,7 +62,7 @@ export function StartMenu({ onClose }: { onClose: () => void }) {
       title: "Turn Off Computer",
       kind: "warn",
       heading: "Leaving already?",
-      message: "Before turning off, check the Contact page if you want to work together — I usually reply within one working day.",
+      message: "Great work takes time, and so do great websites. Huzaifa built this whole portfolio one window at a time, and he can build yours the same way. Before you go, say hello on the Contact page. He usually replies within one working day, and your next big idea could start with one message.",
       buttons: [
         { label: "Visit Contact Page", primary: true, action: () => open({ app: "contact" }) },
         { label: "Stay Here" },
@@ -117,12 +117,12 @@ export function StartMenu({ onClose }: { onClose: () => void }) {
         <div className="w7-start-results">
           {results.kind === "winver" ? (
             <button type="button" className="w7-mi" onClick={() => { open({ app: "winver" }); onClose(); }}>
-              <Icon kind="shield" size={22} /> About This Portfolio — Windows XP Edition
+              <Icon kind="shield" size={22} /> About This Portfolio - Windows XP Edition
             </button>
           ) : (
             <>
               {results.projects.map((p) => (
-                <button key={p.id} type="button" className="w7-mi" onClick={() => { open({ app: "project", title: `${p.title} — Properties`, icon: "document", payload: { projectId: p.id } }); onClose(); }}>
+                <button key={p.id} type="button" className="w7-mi" onClick={() => { open({ app: "project", title: `${p.title} - Properties`, icon: "document", payload: { projectId: p.id } }); onClose(); }}>
                   <Icon kind="document" size={20} /> {p.title}
                 </button>
               ))}
@@ -133,11 +133,11 @@ export function StartMenu({ onClose }: { onClose: () => void }) {
               ))}
               {results.skills.map((s) => (
                 <button key={s.name} type="button" className="w7-mi" onClick={() => { open({ app: "skills" }); onClose(); }}>
-                  <Icon kind="skills" size={20} /> {s.name} — {s.score.toFixed(1)}
+                  <Icon kind="skills" size={20} /> {s.name} - {s.score.toFixed(1)}
                 </button>
               ))}
               {results.projects.length + results.cats.length + results.skills.length === 0 && (
-                <p className="w7-p" style={{ padding: "8px 10px" }}>No items match your search.</p>
+                <p className="w7-p" style={{ padding: "8px 10px" }}>Nothing found, but every search is a new idea. Try &ldquo;AI&rdquo;, &ldquo;WordPress&rdquo; or &ldquo;RAG&rdquo;.</p>
               )}
             </>
           )}

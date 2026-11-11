@@ -21,9 +21,9 @@ import { useOS, type Settings, type WinState } from "./os";
 
 /** Real preview for a project window.
  * - If the project has a verified live site, embed that site itself in an
- *   iframe — the actual website, not a mock image.
+ *   iframe - the actual website, not a mock image.
  * - Otherwise (code-only projects: agents, RAG labs, eval harnesses), show
- *   the project's real README fetched from GitHub — its actual content —
+ *   the project's real README fetched from GitHub - its actual content -
  *   with a note that it has no public live site. Never a fake screenshot.
  * GitHub pages block framing, so they are never iframed; the README fetch
  * uses raw.githubusercontent.com, which serves the file directly. */
@@ -68,7 +68,7 @@ function ProjectPreview({ project }: { project: Project }) {
   if (project.previewImage) {
     return (
       <section>
-        {!isWP && <h2 className="w7-h2">Preview — the actual website</h2>}
+        {!isWP && <h2 className="w7-h2">Preview - the actual website</h2>}
         <div className="w7-preview">
           <div className="w7-preview-bar">
             <span className="w7-preview-url" title={project.liveUrl}>{project.liveUrl}</span>
@@ -82,7 +82,7 @@ function ProjectPreview({ project }: { project: Project }) {
           {!isWP && (
             <p className="w7-p" style={{ fontSize: 11, color: "#6b7c8c", marginTop: 6 }}>
               This site blocks embedding, so here is a captured view of its real homepage instead of a
-              blank frame — use “Open live site” to browse it in full.
+              blank frame. Use “Open live site” to browse it in full.
             </p>
           )}
         </div>
@@ -93,7 +93,7 @@ function ProjectPreview({ project }: { project: Project }) {
   if (project.previewUrl) {
     return (
       <section>
-        {!isWP && <h2 className="w7-h2">Live preview — the actual website</h2>}
+        {!isWP && <h2 className="w7-h2">Live preview - the actual website</h2>}
         <div className="w7-preview">
           <div className="w7-preview-bar">
             <span className="w7-preview-url" title={project.previewUrl}>{project.previewUrl}</span>
@@ -113,7 +113,7 @@ function ProjectPreview({ project }: { project: Project }) {
           </div>
           {!isWP && (
             <p className="w7-p" style={{ fontSize: 11, color: "#6b7c8c", marginTop: 6 }}>
-              If this frame is blank, the site is blocking embedding — use “Open live site” to see it in full.
+              If this frame is blank, the site is blocking embedding. Use “Open live site” to see it in full.
             </p>
           )}
         </div>
@@ -127,7 +127,7 @@ function ProjectPreview({ project }: { project: Project }) {
         <h2 className="w7-h2">Preview</h2>
         <p className="w7-p" style={{ fontSize: 12, color: "#6b7c8c" }}>
           This is a collection of client work rather than a single public site, so there is no single
-          live preview to embed here — the work, tools and results are described below, with no mock
+          live preview to embed here. The work, tools and results are described below, with no mock
           screenshot.
         </p>
       </section>
@@ -136,7 +136,7 @@ function ProjectPreview({ project }: { project: Project }) {
 
   return (
     <section>
-      <h2 className="w7-h2">Preview — actual project README</h2>
+      <h2 className="w7-h2">Preview - actual project README</h2>
       <p className="w7-p" style={{ fontSize: 12, color: "#6b7c8c" }}>
         This project has no public live website, so instead of a mock screenshot here is its real README
         from GitHub{repo ? ` (${repo})` : ""}.
@@ -146,7 +146,7 @@ function ProjectPreview({ project }: { project: Project }) {
         {readmeState === "done" && readme && <pre>{readme}</pre>}
         {readmeState === "failed" && (
           <p className="w7-p">
-            The README could not be loaded here — open the GitHub link below to read the real project.
+            The README could not be loaded here. Open the GitHub link below to read the real project.
           </p>
         )}
       </div>
@@ -163,7 +163,7 @@ export function ProjectWindow({ win }: { win: WinState }) {
   };
 
   // Preview-only sites (WordPress folder, 2026-11-11; Web Development
-  // folder, 2026-11-11): the window shows ONLY the preview — no
+  // folder, 2026-11-11): the window shows ONLY the preview - no
   // category/title/tagline header above it and no role, tools, features,
   // result or buttons below it.
   if (project.previewOnly === true) {
@@ -307,7 +307,7 @@ export function AboutWindow() {
             <div className="w7-sep" />
             {experience.map((j) => (
               <div key={j.company} className="w7-band" style={{ marginBottom: 10 }}>
-                <h2 className="w7-h2">{j.role} — {j.company}</h2>
+                <h2 className="w7-h2">{j.role} - {j.company}</h2>
                 <p className="w7-h3">{j.duration}</p>
                 <p className="w7-p" style={{ marginTop: 6 }}>{j.summary}</p>
               </div>
@@ -482,7 +482,7 @@ export function ResumeWindow({ win }: { win: WinState }) {
           <h2 className="w7-h3">Experience</h2>
           {experience.map((j) => (
             <div key={j.company} style={{ marginTop: 10 }}>
-              <p style={{ fontSize: 13, fontWeight: 600, color: "#1d3d5c" }}>{j.role} — {j.company}</p>
+              <p style={{ fontSize: 13, fontWeight: 600, color: "#1d3d5c" }}>{j.role} - {j.company}</p>
               <p style={{ fontSize: 11, color: "#6b7c8c" }}>{j.duration}</p>
               <ul className="w7-p" style={{ paddingLeft: 18, listStyle: "square" }}>
                 {j.achievements.map((a) => (
@@ -500,7 +500,7 @@ export function ResumeWindow({ win }: { win: WinState }) {
           <h2 className="w7-h3">Education</h2>
           {education.map((e) => (
             <p key={e.school} className="w7-p">
-              <strong>{e.award}</strong> — {e.school} ({e.duration})
+              <strong>{e.award}</strong> - {e.school} ({e.duration})
             </p>
           ))}
         </article>
@@ -529,7 +529,7 @@ export function ContactWindow() {
         title: "Message",
         kind: "error",
         heading: "Some required fields are empty",
-        message: "Please provide your name, email address and a message before sending.",
+        message: "Almost there. Every great project starts with a name, an email and an idea. Fill those in and hit send.",
         buttons: [{ label: "OK", primary: true }],
       });
       return;
@@ -539,7 +539,7 @@ export function ContactWindow() {
       title: "Message Sent",
       kind: "success",
       heading: "Message Sent",
-      message: "Your message has been successfully sent. I usually reply within one working day.",
+      message: "Your message is on its way. You just took the first step, and Huzaifa takes every first step seriously. He usually replies within one working day, and your idea is already in good hands.",
       buttons: [{ label: "OK", primary: true }],
     });
     setForm({ name: "", email: "", subject: "", message: "" });
@@ -611,7 +611,7 @@ export function RecycleWindow() {
               kind: "warn",
               heading: "Empty Recycle Bin?",
               message:
-                "These mistakes are load-bearing — they are the only reason the current work is any good. Keep them?",
+                "These mistakes are load-bearing, they are the only reason the current work is any good. Keep them?",
               buttons: [{ label: "Keep them", primary: true }, { label: "Also keep them" }],
             })
           }
@@ -631,7 +631,7 @@ export function RecycleWindow() {
               onClick={() => setSel(item.name)}
               onDoubleClick={() => {
                 if (item.name === "Old Portfolio v1" && oldPortfolio) {
-                  open({ app: "project", title: `${oldPortfolio.title} — Properties`, icon: "document", payload: { projectId: oldPortfolio.id } });
+                  open({ app: "project", title: `${oldPortfolio.title} - Properties`, icon: "document", payload: { projectId: oldPortfolio.id } });
                 } else {
                   showDialog({ title: item.name, kind: "info", heading: item.name, message: item.note, buttons: [{ label: "OK", primary: true }] });
                 }
@@ -666,7 +666,7 @@ export function PersonalizeWindow({ wallpapers }: { wallpapers: Record<Settings[
     <div className="w7-pane">
       <h1 className="w7-h1">Change the visuals on your desktop</h1>
       <p className="w7-p" style={{ marginTop: 2 }}>
-        Pick a background and icon size. Your choice is remembered on this device.
+        Make it yours. Huzaifa designs every screen like it is his own portfolio, because it is. Pick a background and icon size. Your choice is remembered on this device.
       </p>
       <div className="w7-sep" />
       <h2 className="w7-h2">Desktop background</h2>
@@ -731,7 +731,7 @@ export function WinverWindow() {
       <div>
         <h1 className="w7-h1" style={{ fontSize: 18 }}>About This Portfolio</h1>
         <p className="w7-p" style={{ marginTop: 6 }}>
-          Windows XP Portfolio Edition — Muhammad Huzaifa Aqeel
+          Windows XP Portfolio Edition - Muhammad Huzaifa Aqeel
         </p>
         <p className="w7-p" style={{ marginTop: 6 }}>
           Full-stack web and AI agent work, presented as a Windows XP style desktop.
@@ -800,7 +800,7 @@ export function BrowserWindow() {
               type="button"
               className="w7-band"
               style={{ textAlign: "left", cursor: "default" }}
-              onClick={() => open({ app: "project", title: `${p.title} — Properties`, icon: "document", payload: { projectId: p.id } })}
+              onClick={() => open({ app: "project", title: `${p.title} - Properties`, icon: "document", payload: { projectId: p.id } })}
             >
               <MockShot seed={i + 3} height={110} label={p.title} />
               <h2 className="w7-h2" style={{ marginTop: 8 }}>{p.title}</h2>

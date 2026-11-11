@@ -23,18 +23,18 @@ export interface Project {
   liveUrl?: string;
   /** A URL that can actually be embedded as a live preview (iframe). Only
    * set when the site is verified live and does not block framing. Code-only
-   * projects have no previewUrl — their window shows their real README
+   * projects have no previewUrl - their window shows their real README
    * instead, never a mock screenshot. */
   previewUrl?: string;
   /** Captured homepage screenshot, used only when the site itself blocks
    * embedding (X-Frame-Options / frame-ancestors) so its window still shows
    * the actual site visibly instead of a blank frame. */
   previewImage?: string;
-  /** Preview-only window (no header/details below), 90% zoom, hero tile —
+  /** Preview-only window (no header/details below), 90% zoom, hero tile -
    * the WordPress-folder treatment, also used for the new web sites. */
   previewOnly?: boolean;
   /** Captured hero-section screenshot shown as the tile thumbnail in the
-   * WordPress folder (Explorer) — the actual site's homepage top. */
+   * WordPress folder (Explorer) - the actual site's homepage top. */
   thumbImage?: string;
   caseStudyUrl?: string;
   githubUrl?: string;
@@ -61,8 +61,8 @@ export interface Category {
 export const owner = {
   name: "Muhammad Huzaifa Aqeel",
   title: "Full-Stack Web Developer & AI Agentic Developer",
-  location: "Rawalpindi, Pakistan — working worldwide",
-  experience: "2022 — Present · Web & AI development",
+  location: "Rawalpindi, Pakistan, working worldwide",
+  experience: "2022 - Present · Web & AI development",
   email: "huzaifaa.aqeel@gmail.com",
   phone: "+92 330 5979548",
   linkedin: "https://www.linkedin.com/in/ai-huzaifa-aqeel",
@@ -70,7 +70,7 @@ export const owner = {
   portfolio: "https://heylink.me/huzaifaaqeel",
   whatsapp: "https://wa.me/923305979548",
   intro:
-    "I build full-stack web products and AI agent systems that people can actually use — React and TypeScript front ends, Node.js APIs, and LLM agents with retrieval, tools and guardrails, shipped end to end from requirements to deployment.",
+    "I build full-stack web products and AI agent systems that people can actually use: React and TypeScript front ends, Node.js APIs, and LLM agents with retrieval, tools and guardrails, shipped end to end from requirements to deployment.",
   bio: "I started building websites at the Rawalpindi Institute of Technology, then worked full-time at Aridian Array Software Society on MERN client and in-house projects, and have freelanced in web and AI since 2023. Alongside that I trained as an AI Agentic Engineer at PIAIC, worked in AI automation at Robox AI, built agents for international clients, and worked remotely at CyberGrabs. I am also the founder of TheHexaSystem, my AI automation agency. My work sits where web, AI and client delivery meet: clear requirements, clean code, and systems that keep working after launch.",
   specializations: [
     "Full-stack React & TypeScript products with Node.js / Express APIs",
@@ -90,18 +90,18 @@ export const categories: Category[] = [
 export const projects: Project[] = [
   {
     id: "thehexasystem",
-    title: "TheHexaSystem — AI Automation Agency",
+    title: "TheHexaSystem - AI Automation Agency",
     category: "web",
     year: "2025",
     tagline: "Founder-built agency site for AI automation, voice agents and funnels",
     description:
       "TheHexaSystem is Huzaifa's own AI automation agency. The site presents its services, process, pricing calculator, booking and FAQ, and is built as a large TanStack Start front end with a full design-system component library.",
     problem:
-      "An agency needs one place that explains what it does, how it works, what it costs and how to book — without a generic template look.",
+      "An agency needs one place that explains what it does, how it works, what it costs and how to book - without a generic template look.",
     solution:
       "Built the site as a complete product: service pages, a ten-service menu, a workflow section, a calculator, booking requests and an SEO foundation (sitemap, robots, llms.txt, JSON-LD and canonicals), with no invented metrics, ratings or prices.",
     technologies: ["React", "TypeScript", "TanStack Start", "Tailwind CSS", "Vercel", "Resend"],
-    role: "Founder and sole developer — design, build, SEO foundation and deployment.",
+    role: "Founder and sole developer - design, build, SEO foundation and deployment.",
     features: [
       "Service, process, calculator, booking and FAQ sections",
       "Design-system component library and mega-menu navigation",
@@ -132,7 +132,7 @@ export const projects: Project[] = [
     solution:
       "Built an 18-node LangGraph graph with supervisor routing, retry policies, structured outputs and tool-use guardrails, plus a sandboxed coding agent, evals and deployment.",
     technologies: ["Python", "LangGraph", "LangChain", "MCP", "A2A protocol"],
-    role: "Designer and builder — orchestration, guardrails, evals and deployment.",
+    role: "Designer and builder - orchestration, guardrails, evals and deployment.",
     features: [
       "Supervisor routing with shared state and HITL plan approval",
       "Retry policies and structured outputs for long runs",
@@ -155,11 +155,11 @@ export const projects: Project[] = [
     description:
       "An experimental RAG lab that fuses BM25 lexical search with Milvus dense-vector retrieval via Reciprocal Rank Fusion, adds a cross-encoder reranker, and compares results side by side in Streamlit.",
     problem:
-      "Keyword search misses meaning and dense search misses exact terms — either alone gives weak answers.",
+      "Keyword search misses meaning and dense search misses exact terms, so either alone gives weak answers.",
     solution:
       "Combined both retrievers with RRF fusion and cross-encoder reranking, then benchmarked chunking strategies and top-k settings to find the accuracy and latency sweet spot for production Q&A.",
     technologies: ["Python", "BM25", "Milvus", "Reciprocal Rank Fusion", "Cross-encoder reranking", "LangChain", "Streamlit", "Gemini"],
-    role: "Designer and builder — retrieval design, benchmarking and UI.",
+    role: "Designer and builder - retrieval design, benchmarking and UI.",
     features: [
       "BM25 + Milvus hybrid retrieval with RRF fusion",
       "Cross-encoder reranking and side-by-side comparison",
@@ -186,7 +186,7 @@ export const projects: Project[] = [
     solution:
       "Used schema-aware prompting, a single tool, self-correction on errors, SQL validation and a 50+ metric eval suite to catch bad queries before execution, with traces, scenarios and an MCP improvement loop.",
     technologies: ["Python", "LLM Agents", "SQL", "MCP", "Pydantic"],
-    role: "Designer and builder — agent loop, validation and eval suite.",
+    role: "Designer and builder - agent loop, validation and eval suite.",
     features: [
       "Single execute_sql tool with schema-aware prompting",
       "Self-correction on SQL errors",
@@ -206,13 +206,13 @@ export const projects: Project[] = [
     year: "2025",
     tagline: "Minimal, spec-faithful framework for MCP servers and clients",
     description:
-      "A minimal Python framework for building Model Context Protocol servers and clients — tools, resources and prompts over a standard transport — including a codebase MCP server that turns any codebase into a queryable knowledge base.",
+      "A minimal Python framework for building Model Context Protocol servers and clients: tools, resources and prompts over a standard transport, including a codebase MCP server that turns any codebase into a queryable knowledge base.",
     problem:
       "Agents need a standard way to call tools and read resources, and codebases need a standard way to be queried.",
     solution:
       "Built a spec-faithful MCP framework, then a codebase server on top of it with tree-sitter parsing, hybrid BM25 + vector retrieval, reranking and citations.",
     technologies: ["Python", "Model Context Protocol", "Tree-sitter", "BM25", "Vector retrieval"],
-    role: "Designer and builder — framework and codebase server.",
+    role: "Designer and builder - framework and codebase server.",
     features: [
       "MCP tools, resources and prompts over standard transport",
       "Codebase server with tree-sitter parsing",
@@ -227,7 +227,7 @@ export const projects: Project[] = [
   },
   {
     id: "pathfinder-ai",
-    title: "Pathfinder AI — Career Guidance Platform",
+    title: "Pathfinder AI - Career Guidance Platform",
     category: "web",
     year: "2025",
     tagline: "Careers, learning roadmaps, resume analysis, jobs and an AI coach",
@@ -238,7 +238,7 @@ export const projects: Project[] = [
     solution:
       "Architected a pnpm monorepo with a React front end, a dedicated Express API server, and a shared API-spec package with code-generated, type-safe hooks and Zod schemas.",
     technologies: ["React", "TypeScript", "Node.js", "Express", "Zod", "pnpm monorepo"],
-    role: "Full-stack developer — architecture, front end, API and type-safe hooks.",
+    role: "Full-stack developer - architecture, front end, API and type-safe hooks.",
     features: [
       "Career discovery and learning roadmaps",
       "Resume analysis and job search",
@@ -253,7 +253,7 @@ export const projects: Project[] = [
   },
   {
     id: "wizards-detailing",
-    title: "Wizards Detailing — Business Website & Platform",
+    title: "Wizards Detailing - Business Website & Platform",
     category: "web",
     year: "2025",
     tagline: "Car detailing business site with services, booking and admin",
@@ -264,7 +264,7 @@ export const projects: Project[] = [
     solution:
       "Built the Express back end with modular routes and middleware (auth, validation, error handling) and a PostgreSQL data layer, plus a Radix/shadcn UI with React Hook Form and schema validation, deployed on Vercel.",
     technologies: ["React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Express", "PostgreSQL", "Vercel"],
-    role: "Full-stack developer — front end, back end, booking flows and deployment.",
+    role: "Full-stack developer - front end, back end, booking flows and deployment.",
     features: [
       "Service listings and booking flows",
       "Admin management area",
@@ -279,7 +279,7 @@ export const projects: Project[] = [
   },
   {
     id: "aura-robot",
-    title: "AURA Robot System — Face-Recognition Attendance",
+    title: "AURA Robot System - Face-Recognition Attendance",
     category: "web",
     year: "2025",
     tagline: "University attendance with face recognition and a web admin panel",
@@ -290,7 +290,7 @@ export const projects: Project[] = [
     solution:
       "Built an admin panel with secure login, student face enrollment, and teacher, subject and timetable management, plus a kiosk-mode scanner interface.",
     technologies: ["JavaScript", "Python", "Node.js", "Face recognition"],
-    role: "Full-stack developer — admin panel, enrollment and kiosk interface.",
+    role: "Full-stack developer - admin panel, enrollment and kiosk interface.",
     features: [
       "Secure login and student face enrollment",
       "Teacher, subject and timetable management",
@@ -316,7 +316,7 @@ export const projects: Project[] = [
     solution:
       "Used PyPDF2 extraction, LangChain chunking, FAISS retrieval and Gemini, with citations back to each source document.",
     technologies: ["Python", "Streamlit", "LangChain", "FAISS", "Gemini", "PyPDF2"],
-    role: "Designer and builder — extraction, retrieval, chat and citations.",
+    role: "Designer and builder - extraction, retrieval, chat and citations.",
     features: [
       "Multiple PDF upload and chat",
       "LangChain chunking and FAISS retrieval",
@@ -331,18 +331,18 @@ export const projects: Project[] = [
   },
   {
     id: "youtuberag",
-    title: "YoutubeRAG — Chat with YouTube Videos",
+    title: "YoutubeRAG - Chat with YouTube Videos",
     category: "ai",
     year: "2024",
     tagline: "Paste a YouTube link or upload, get the transcript, then ask questions",
     description:
       "A Streamlit app that takes a YouTube link or upload, gets the transcript, and lets users chat with the video content via Gemini.",
     problem:
-      "Long videos are hard to search — you want the answer, not to rewatch the whole thing.",
+      "Long videos are hard to search: you want the answer, not to rewatch the whole thing.",
     solution:
       "Built transcript extraction plus a Gemini chat layer over the transcript, so questions are answered from the video itself.",
     technologies: ["Python", "Streamlit", "Gemini", "YouTube transcripts"],
-    role: "Designer and builder — transcript pipeline and chat.",
+    role: "Designer and builder - transcript pipeline and chat.",
     features: [
       "YouTube link and upload support",
       "Transcript extraction",
@@ -368,7 +368,7 @@ export const projects: Project[] = [
     solution:
       "Wired VAD, streaming Whisper transcription, Llama reasoning and ElevenLabs TTS into a single low-latency conversational loop.",
     technologies: ["Python", "Groq Whisper", "Llama", "ElevenLabs", "Voice Activity Detection"],
-    role: "Designer and builder — voice pipeline and conversational loop.",
+    role: "Designer and builder - voice pipeline and conversational loop.",
     features: [
       "Microphone VAD and streaming transcription",
       "Llama responses over the live transcript",
@@ -394,7 +394,7 @@ export const projects: Project[] = [
     solution:
       "Built a probe harness with a synthetic gateway and CI-ready reports, so agent safety can be tested the same way on every change.",
     technologies: ["Python", "Agent evaluation", "Prompt injection testing", "CI reporting"],
-    role: "Designer and builder — probes, gateway and reports.",
+    role: "Designer and builder - probes, gateway and reports.",
     features: [
       "280+ injection and exfiltration probes",
       "Synthetic gateway for safe testing",
@@ -409,7 +409,7 @@ export const projects: Project[] = [
   },
   // WordPress folder sites, from Huzaifa's HeyLink (heylink.me/huzaifa.aqeel)
   // and the picture he sent 2026-11-04. Each one is shown with its live
-  // preview (previewUrl) — no invented build details: problem/solution are
+  // preview (previewUrl) - no invented build details: problem/solution are
   // kept generic because the specific scope per site was not stated.
   {
     id: "wp-halohouse",
@@ -418,9 +418,9 @@ export const projects: Project[] = [
     year: "Client work",
     tagline: "Smarter Marketing. More Leads. Real Growth.",
     description:
-      "HaloHouse agency website, listed on Huzaifa's HeyLink. Shown here with its live preview — open it from the preview bar to explore the full site.",
+      "HaloHouse agency website, listed on Huzaifa's HeyLink. Shown here with its live preview. Open it from the preview bar to explore the full site.",
     problem: "A business website, listed in Huzaifa's WordPress portfolio.",
-    solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
+    solution: "Shown here with its live preview. Open the site from the preview bar to explore it in full.",
     technologies: ["WordPress", "Elementor"],
     role: "WordPress client site in Huzaifa's portfolio.",
     features: ["Live website preview above", "Open live site from the preview bar"],
@@ -439,9 +439,9 @@ export const projects: Project[] = [
     year: "Client work",
     tagline: "Client website listed on Huzaifa's HeyLink.",
     description:
-      "Buzful website, listed on Huzaifa's HeyLink. Shown here with its live preview — the site currently shows a Coming Soon page.",
+      "Buzful website, listed on Huzaifa's HeyLink. Shown here with its live preview - the site currently shows a Coming Soon page.",
     problem: "A business website, listed in Huzaifa's WordPress portfolio.",
-    solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
+    solution: "Shown here with its live preview. Open the site from the preview bar to explore it in full.",
     technologies: ["WordPress"],
     role: "WordPress client site in Huzaifa's portfolio.",
     features: ["Live website preview above", "Open live site from the preview bar"],
@@ -462,7 +462,7 @@ export const projects: Project[] = [
     description:
       "AA Recovery and Transport website, listed on Huzaifa's HeyLink. Shown here with its live preview.",
     problem: "A business website, listed in Huzaifa's WordPress portfolio.",
-    solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
+    solution: "Shown here with its live preview. Open the site from the preview bar to explore it in full.",
     technologies: ["WordPress"],
     role: "WordPress client site in Huzaifa's portfolio.",
     features: ["Live website preview above", "Open live site from the preview bar"],
@@ -483,7 +483,7 @@ export const projects: Project[] = [
     description:
       "Assignment Maker Pro website, listed on Huzaifa's HeyLink. Shown here with its live preview.",
     problem: "A business website, listed in Huzaifa's WordPress portfolio.",
-    solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
+    solution: "Shown here with its live preview. Open the site from the preview bar to explore it in full.",
     technologies: ["WordPress"],
     role: "WordPress client site in Huzaifa's portfolio.",
     features: ["Live website preview above", "Open live site from the preview bar"],
@@ -504,7 +504,7 @@ export const projects: Project[] = [
     description:
       "Celestial Spring Real Estate website, listed on Huzaifa's HeyLink. Shown here with its live preview.",
     problem: "A business website, listed in Huzaifa's WordPress portfolio.",
-    solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
+    solution: "Shown here with its live preview. Open the site from the preview bar to explore it in full.",
     technologies: ["WordPress"],
     role: "WordPress client site in Huzaifa's portfolio.",
     features: ["Live website preview above", "Open live site from the preview bar"],
@@ -523,9 +523,9 @@ export const projects: Project[] = [
     year: "Client work",
     tagline: "Online store listed on Huzaifa's HeyLink.",
     description:
-      "Gemuro online store, listed on Huzaifa's HeyLink. Note: this store runs on Shopify, not WordPress — it is included because Huzaifa listed it for this folder. Gemuro blocks embedding, so its preview here is a captured view of its real homepage.",
+      "Gemuro online store, listed on Huzaifa's HeyLink. Note: this store runs on Shopify, not WordPress. It is included because Huzaifa listed it for this folder. Gemuro blocks embedding, so its preview here is a captured view of its real homepage.",
     problem: "A business website, listed in Huzaifa's portfolio.",
-    solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
+    solution: "Shown here with its live preview. Open the site from the preview bar to explore it in full.",
     technologies: ["Shopify"],
     role: "Client site in Huzaifa's portfolio.",
     features: ["Live website preview above", "Open live site from the preview bar"],
@@ -546,7 +546,7 @@ export const projects: Project[] = [
     description:
       "Pure Joy website, listed on Huzaifa's HeyLink. Pure Joy blocks embedding, so its preview here is a captured view of its real homepage.",
     problem: "A business website, listed in Huzaifa's WordPress portfolio.",
-    solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
+    solution: "Shown here with its live preview. Open the site from the preview bar to explore it in full.",
     technologies: ["WordPress"],
     role: "WordPress client site in Huzaifa's portfolio.",
     features: ["Live website preview above", "Open live site from the preview bar"],
@@ -565,9 +565,9 @@ export const projects: Project[] = [
     year: "Client work",
     tagline: "APK Shop website (apkshop.com.pk).",
     description:
-      "APK Shop website, listed on Huzaifa's HeyLink. Shown here with its live preview — the site currently shows an Account Suspended page.",
+      "APK Shop website, listed on Huzaifa's HeyLink. Shown here with its live preview - the site currently shows an Account Suspended page.",
     problem: "A business website, listed in Huzaifa's WordPress portfolio.",
-    solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
+    solution: "Shown here with its live preview. Open the site from the preview bar to explore it in full.",
     technologies: ["Website"],
     role: "Client site in Huzaifa's portfolio.",
     features: ["Live website preview above", "Open live site from the preview bar"],
@@ -588,7 +588,7 @@ export const projects: Project[] = [
     description:
       "Endura Paint website, listed on Huzaifa's HeyLink. Shown here with its live preview.",
     problem: "A business website, listed in Huzaifa's WordPress portfolio.",
-    solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
+    solution: "Shown here with its live preview. Open the site from the preview bar to explore it in full.",
     technologies: ["WordPress"],
     role: "WordPress client site in Huzaifa's portfolio.",
     features: ["Live website preview above", "Open live site from the preview bar"],
@@ -609,7 +609,7 @@ export const projects: Project[] = [
     description:
       "Guardian NorthWest website, listed on Huzaifa's HeyLink. Shown here with its live preview.",
     problem: "A business website, listed in Huzaifa's WordPress portfolio.",
-    solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
+    solution: "Shown here with its live preview. Open the site from the preview bar to explore it in full.",
     technologies: ["WordPress"],
     role: "WordPress client site in Huzaifa's portfolio.",
     features: ["Live website preview above", "Open live site from the preview bar"],
@@ -630,7 +630,7 @@ export const projects: Project[] = [
     description:
       "Texas Tulsa Connection website, listed on Huzaifa's HeyLink. Shown here with its live preview.",
     problem: "A business website, listed in Huzaifa's WordPress portfolio.",
-    solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
+    solution: "Shown here with its live preview. Open the site from the preview bar to explore it in full.",
     technologies: ["WordPress"],
     role: "WordPress client site in Huzaifa's portfolio.",
     features: ["Live website preview above", "Open live site from the preview bar"],
@@ -645,7 +645,7 @@ export const projects: Project[] = [
   // Web Development folder sites, added 2026-11-11 at Huzaifa's request.
   // Each one is shown with its live preview, the same treatment as the
   // WordPress folder: preview-only window, 90% zoom, hero tile thumbnail.
-  // No invented build details — problem/solution are kept generic.
+  // No invented build details - problem/solution are kept generic.
   {
     id: "web-clubxh13",
     title: "Club X",
@@ -655,7 +655,7 @@ export const projects: Project[] = [
     description:
       "Club X website, listed by Huzaifa for the Web Development folder. Shown here with its live preview.",
     problem: "A business website, listed in Huzaifa's Web Development portfolio.",
-    solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
+    solution: "Shown here with its live preview. Open the site from the preview bar to explore it in full.",
     technologies: ["Website"],
     role: "Client site in Huzaifa's portfolio.",
     features: ["Live website preview above", "Open live site from the preview bar"],
@@ -675,7 +675,7 @@ export const projects: Project[] = [
     description:
       "DishLens website, listed by Huzaifa for the Web Development folder. DishLens blocks embedding, so its preview here is a captured view of its real homepage.",
     problem: "A business website, listed in Huzaifa's Web Development portfolio.",
-    solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
+    solution: "Shown here with its live preview. Open the site from the preview bar to explore it in full.",
     technologies: ["Website"],
     role: "Client site in Huzaifa's portfolio.",
     features: ["Live website preview above", "Open live site from the preview bar"],
@@ -696,7 +696,7 @@ export const projects: Project[] = [
     description:
       "Triminage website, listed by Huzaifa for the Web Development folder. Shown here with its live preview.",
     problem: "A business website, listed in Huzaifa's Web Development portfolio.",
-    solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
+    solution: "Shown here with its live preview. Open the site from the preview bar to explore it in full.",
     technologies: ["Website"],
     role: "Client site in Huzaifa's portfolio.",
     features: ["Live website preview above", "Open live site from the preview bar"],
@@ -717,7 +717,7 @@ export const projects: Project[] = [
     description:
       "Social Directions Agency website, listed by Huzaifa for the Web Development folder. Shown here with its live preview.",
     problem: "A business website, listed in Huzaifa's Web Development portfolio.",
-    solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
+    solution: "Shown here with its live preview. Open the site from the preview bar to explore it in full.",
     technologies: ["Website"],
     role: "Client site in Huzaifa's portfolio.",
     features: ["Live website preview above", "Open live site from the preview bar"],
@@ -738,7 +738,7 @@ export const projects: Project[] = [
     description:
       "Recovery Buddy website, listed by Huzaifa for the Web Development folder. Shown here with its live preview.",
     problem: "A business website, listed in Huzaifa's Web Development portfolio.",
-    solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
+    solution: "Shown here with its live preview. Open the site from the preview bar to explore it in full.",
     technologies: ["Website"],
     role: "Client site in Huzaifa's portfolio.",
     features: ["Live website preview above", "Open live site from the preview bar"],
@@ -759,7 +759,7 @@ export const projects: Project[] = [
     description:
       "Rafold store, listed by Huzaifa for the Web Development folder. Shown here with its live preview.",
     problem: "A business website, listed in Huzaifa's Web Development portfolio.",
-    solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
+    solution: "Shown here with its live preview. Open the site from the preview bar to explore it in full.",
     technologies: ["Website"],
     role: "Client site in Huzaifa's portfolio.",
     features: ["Live website preview above", "Open live site from the preview bar"],
@@ -830,7 +830,7 @@ export const experience: Job[] = [
     role: "AI Automation Engineer",
     duration: "2025 · 6 months",
     summary:
-      "Automated repetitive business operations by combining LLM agents with workflow automation — API chaining, scheduled jobs and webhooks — into end-to-end pipelines.",
+      "Automated repetitive business operations by combining LLM agents with workflow automation: API chaining, scheduled jobs and webhooks, into end-to-end pipelines.",
     responsibilities: [
       "Build document-intelligence automations with Pydantic-validated extraction and human-in-the-loop review",
       "Create email-processing automations: classification, summarization and draft replies via the Gmail API",
@@ -842,7 +842,7 @@ export const experience: Job[] = [
   },
   {
     company: "PIAIC",
-    role: "AI Engineer — Projects for International Clients",
+    role: "AI Engineer - Projects for International Clients",
     duration: "2025",
     summary:
       "Delivered AI projects for international clients through the PIAIC program, owning scoping, build and deployment.",
@@ -873,7 +873,7 @@ export const experience: Job[] = [
   {
     company: "Aridian Array Software Society",
     role: "Full-Time Web Developer",
-    duration: "2024 — 2025 · 1 year",
+    duration: "2024 - 2025 · 1 year",
     summary:
       "Worked full-time on client and in-house web projects across the MERN stack, from feature development to production deployment.",
     responsibilities: [
@@ -889,7 +889,7 @@ export const experience: Job[] = [
   {
     company: "Rawalpindi Institute of Technology (RIT)",
     role: "Web Developer",
-    duration: "2022 — 2023",
+    duration: "2022 - 2023",
     summary:
       "Developed and maintained the institute's official website, covering admissions, academic programs, faculty profiles, and news and events.",
     responsibilities: [
@@ -919,9 +919,9 @@ export const experience: Job[] = [
     ],
   },
   {
-    company: "Freelance — Web & AI",
+    company: "Freelance - Web & AI",
     role: "Freelance Full-Stack Web Developer & AI Engineer",
-    duration: "2023 — Present",
+    duration: "2023 - Present",
     summary:
       "Designed and delivered full-stack web applications and AI systems for startups and individual clients, owning the full lifecycle from requirements to deployment and maintenance.",
     responsibilities: [
@@ -940,32 +940,32 @@ export const education = [
   {
     school: "University Institute of Information Technology (UIIT), Rawalpindi",
     award: "BS Computer Science",
-    duration: "2022 — 2026",
+    duration: "2022 - 2026",
     note: "CGPA 3.5/4.0. Degree complete.",
   },
   {
     school: "Presidential Initiative for Artificial Intelligence & Computing (PIAIC)",
     award: "AI Agentic Engineer",
-    duration: "2023 — 2024",
+    duration: "2023 - 2024",
     note: "Agentic AI training: LangChain, LangGraph, RAG and agent systems.",
   },
   {
     school: "Fazaia Inter College, Jinnah Camp, Nur Khan",
     award: "Pre-Engineering",
-    duration: "2019 — 2021",
+    duration: "2019 - 2021",
     note: "975/1100.",
   },
   {
     school: "Certifications (selected)",
     award: "Meta, DeepLearning.AI, LangChain Academy, MongoDB, freeCodeCamp",
-    duration: "2022 — Present",
+    duration: "2022 - Present",
     note: "Meta Front-End and Back-End, DeepLearning.AI (Deep Learning, NLP, Generative AI, LangChain, Vector Databases), LangChain Academy (AI Agents in LangGraph), MongoDB Associate Developer, freeCodeCamp JavaScript and Responsive Web Design.",
   },
 ];
 
 export const interests = [
   "Building AI agents, RAG systems and multi-agent platforms",
-  "Open-source AI projects on GitHub — RAG, MCP, evaluation and voice",
+  "Open-source AI projects on GitHub: RAG, MCP, evaluation and voice",
   "Full-stack client work: WordPress, MERN and AI automation",
   "Learning new LLM tools, frameworks and deployment patterns",
 ];
