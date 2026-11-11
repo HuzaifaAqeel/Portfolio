@@ -220,18 +220,30 @@ export function Explorer({ win }: { win: WinState }) {
                 title={p.tagline}
                 {...itemProps(p.id, () => openProject(p))}
               >
-                {p.category === "wordpress" && p.thumbImage ? (
+                {p.previewOnly && p.thumbImage ? (
                   <img
                     src={p.thumbImage}
                     alt={`Hero preview of ${p.title}`}
                     loading="lazy"
                     style={{ width: "100%", height: 86, objectFit: "cover", objectPosition: "top center", border: "1px solid #b9cede", borderRadius: 2 }}
                   />
+                ) : p.previewOnly && p.previewUrl ? (
+                  // No captured hero available (e.g. Club X): show the live
+                  // site itself, scaled down to the tile, hero at the top.
+                  <span style={{ display: "block", width: "100%", height: 86, overflow: "hidden", border: "1px solid #b9cede", borderRadius: 2, background: "#fff" }}>
+                    <iframe
+                      src={p.previewUrl}
+                      title={`Hero preview of ${p.title}`}
+                      tabIndex={-1}
+                      loading="lazy"
+                      style={{ display: "block", width: 1200, height: 800, border: 0, transform: "scale(0.132)", transformOrigin: "top left", pointerEvents: "none" }}
+                    />
+                  </span>
                 ) : (
                   <MockShot seed={i + p.title.length} height={86} variant={shotVariant(p)} label={p.title} />
                 )}
                 <span className="w7-item-label">{p.title}</span>
-                {p.category !== "wordpress" && (
+                {!p.previewOnly && (
                   <span className="w7-item-sub">
                     {categoryName(p.category)} · {p.year}
                   </span>

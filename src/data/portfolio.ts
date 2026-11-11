@@ -30,6 +30,9 @@ export interface Project {
    * embedding (X-Frame-Options / frame-ancestors) so its window still shows
    * the actual site visibly instead of a blank frame. */
   previewImage?: string;
+  /** Preview-only window (no header/details below), 90% zoom, hero tile —
+   * the WordPress-folder treatment, also used for the new web sites. */
+  previewOnly?: boolean;
   /** Captured hero-section screenshot shown as the tile thumbnail in the
    * WordPress folder (Explorer) — the actual site's homepage top. */
   thumbImage?: string;
@@ -428,6 +431,7 @@ export const projects: Project[] = [
     liveUrl: "https://halohouse.agency",
     previewUrl: "https://halohouse.agency",
     thumbImage: "/thumb-halohouse.jpg",
+    previewOnly: true,
   },
   {
     id: "wp-buzful",
@@ -448,6 +452,7 @@ export const projects: Project[] = [
     liveUrl: "https://www.buzful.com/",
     previewUrl: "https://www.buzful.com/",
     thumbImage: "/thumb-buzful.jpg",
+    previewOnly: true,
   },
   {
     id: "wp-aarecovery",
@@ -468,6 +473,7 @@ export const projects: Project[] = [
     liveUrl: "https://aarecoveryandtransport.com",
     previewUrl: "https://aarecoveryandtransport.com",
     thumbImage: "/thumb-aarecovery.jpg",
+    previewOnly: true,
   },
   {
     id: "wp-assignmentmakerpro",
@@ -488,6 +494,7 @@ export const projects: Project[] = [
     liveUrl: "https://assignmentmakerpro.com",
     previewUrl: "https://assignmentmakerpro.com",
     thumbImage: "/thumb-assignmentmakerpro.jpg",
+    previewOnly: true,
   },
   {
     id: "wp-celestialspring",
@@ -508,6 +515,7 @@ export const projects: Project[] = [
     liveUrl: "https://celestialspringrealestate.com",
     previewUrl: "https://celestialspringrealestate.com",
     thumbImage: "/thumb-celestialspring.jpg",
+    previewOnly: true,
   },
   {
     id: "wp-gemuro",
@@ -528,6 +536,7 @@ export const projects: Project[] = [
     liveUrl: "https://gemuro.com",
     previewImage: "/preview-gemuro.jpg",
     thumbImage: "/thumb-gemuro.jpg",
+    previewOnly: true,
   },
   {
     id: "wp-purejoy",
@@ -548,6 +557,7 @@ export const projects: Project[] = [
     liveUrl: "https://www.purejoy.pk",
     previewImage: "/preview-purejoy.jpg",
     thumbImage: "/thumb-purejoy.jpg",
+    previewOnly: true,
   },
   {
     id: "wp-apkshop",
@@ -568,6 +578,7 @@ export const projects: Project[] = [
     liveUrl: "https://apkshop.com.pk",
     previewUrl: "https://apkshop.com.pk",
     thumbImage: "/thumb-apkshop.jpg",
+    previewOnly: true,
   },
   {
     id: "wp-endurapaint",
@@ -588,6 +599,7 @@ export const projects: Project[] = [
     liveUrl: "https://www.endurapaint.com",
     previewUrl: "https://www.endurapaint.com",
     thumbImage: "/thumb-endurapaint.jpg",
+    previewOnly: true,
   },
   {
     id: "wp-guardiannw",
@@ -608,6 +620,7 @@ export const projects: Project[] = [
     liveUrl: "https://guardiannw.uk",
     previewUrl: "https://guardiannw.uk",
     thumbImage: "/thumb-guardiannw.jpg",
+    previewOnly: true,
   },
   {
     id: "wp-texastulsa",
@@ -628,36 +641,138 @@ export const projects: Project[] = [
     liveUrl: "https://texastulsaconnection.com",
     previewUrl: "https://texastulsaconnection.com",
     thumbImage: "/thumb-texastulsa.jpg",
+    previewOnly: true,
+  },
+  // Web Development folder sites, added 2026-11-11 at Huzaifa's request.
+  // Each one is shown with its live preview, the same treatment as the
+  // WordPress folder: preview-only window, 90% zoom, hero tile thumbnail.
+  // No invented build details — problem/solution are kept generic.
+  {
+    id: "web-clubxh13",
+    title: "Club X",
+    category: "web",
+    year: "Client work",
+    tagline: "24/7 Gym, Snooker & Games in H-13 Islamabad.",
+    description:
+      "Club X website, listed by Huzaifa for the Web Development folder. Shown here with its live preview.",
+    problem: "A business website, listed in Huzaifa's Web Development portfolio.",
+    solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
+    technologies: ["Website"],
+    role: "Client site in Huzaifa's portfolio.",
+    features: ["Live website preview above", "Open live site from the preview bar"],
+    result: "Live at clubxh13.com, shown here with its live preview.",
+    tags: ["web", "gym"],
+    screenshots: [],
+    liveUrl: "https://clubxh13.com/",
+    previewUrl: "https://clubxh13.com/",
+    previewOnly: true,
   },
   {
-    id: "portfolio-os",
-    title: "Portfolio OS — This Windows XP Portfolio",
+    id: "web-dishlens",
+    title: "DishLens",
     category: "web",
-    year: "2026",
-    tagline: "A portfolio that behaves like a Windows XP desktop",
+    year: "Client work",
+    tagline: "3D & AR Digital Menus for Restaurants.",
     description:
-      "The site you are using right now: a hand-built Windows XP style desktop with a window manager, Explorer navigation, Start menu, search and personalization — rebuilt with Huzaifa's real projects, skills and experience.",
-    problem:
-      "Most developer portfolios look identical — hero, three cards, contact form. Memorable work needs a memorable container, without losing usability.",
-    solution:
-      "Modelled the whole UI as an OS: drag, resize, minimize and maximize windows, Explorer with navigation history, a Start menu with search, and a reusable dialog system, all in hand-written Aero-style CSS.",
-    technologies: ["React 19", "TypeScript", "TanStack Start", "Custom CSS", "Vercel"],
-    role: "Design, architecture and implementation.",
-    features: [
-      "Window manager: drag, resize, minimize, maximize, stacking",
-      "Explorer with breadcrumbs, back/forward history and live search",
-      "Start menu with search, right-click desktop menu and personalization",
-      "Keyboard support, reduced-motion support, mobile layout",
-    ],
-    result:
-      "Live at huzaifaaqeel.vercel.app, with its code on GitHub for future edits.",
-    tags: ["portfolio", "react", "typescript", "css", "web", "windows"],
-    screenshots: ["Desktop with open windows", "Explorer grid", "Start menu"],
-    liveUrl: "https://huzaifaaqeel.vercel.app",
-    previewUrl: "https://huzaifaaqeel.vercel.app",
-    githubUrl: "https://github.com/HuzaifaAqeel/Portfolio",
-    featured: true,
+      "DishLens website, listed by Huzaifa for the Web Development folder. DishLens blocks embedding, so its preview here is a captured view of its real homepage.",
+    problem: "A business website, listed in Huzaifa's Web Development portfolio.",
+    solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
+    technologies: ["Website"],
+    role: "Client site in Huzaifa's portfolio.",
+    features: ["Live website preview above", "Open live site from the preview bar"],
+    result: "Live at dishlens.app, shown here with a captured view of its real homepage (the site blocks embedding).",
+    tags: ["web", "ar", "restaurants"],
+    screenshots: [],
+    liveUrl: "https://dishlens.app/",
+    previewImage: "/preview-dishlens.jpg",
+    thumbImage: "/thumb-dishlens.jpg",
+    previewOnly: true,
   },
+  {
+    id: "web-triminage",
+    title: "Triminage",
+    category: "web",
+    year: "Client work",
+    tagline: "AI-powered web and mobile products, end to end.",
+    description:
+      "Triminage website, listed by Huzaifa for the Web Development folder. Shown here with its live preview.",
+    problem: "A business website, listed in Huzaifa's Web Development portfolio.",
+    solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
+    technologies: ["Website"],
+    role: "Client site in Huzaifa's portfolio.",
+    features: ["Live website preview above", "Open live site from the preview bar"],
+    result: "Live at www.triminage.com, shown here with its live preview.",
+    tags: ["web", "ai"],
+    screenshots: [],
+    liveUrl: "https://www.triminage.com/",
+    previewUrl: "https://www.triminage.com/",
+    thumbImage: "/thumb-triminage.jpg",
+    previewOnly: true,
+  },
+  {
+    id: "web-socialdirections",
+    title: "Social Directions Agency",
+    category: "web",
+    year: "Client work",
+    tagline: "Growing Client Revenue With Digital Marketing.",
+    description:
+      "Social Directions Agency website, listed by Huzaifa for the Web Development folder. Shown here with its live preview.",
+    problem: "A business website, listed in Huzaifa's Web Development portfolio.",
+    solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
+    technologies: ["Website"],
+    role: "Client site in Huzaifa's portfolio.",
+    features: ["Live website preview above", "Open live site from the preview bar"],
+    result: "Live at socialdirectionsagency.com, shown here with its live preview.",
+    tags: ["web", "marketing", "agency"],
+    screenshots: [],
+    liveUrl: "https://socialdirectionsagency.com/",
+    previewUrl: "https://socialdirectionsagency.com/",
+    thumbImage: "/thumb-socialdirections.jpg",
+    previewOnly: true,
+  },
+  {
+    id: "web-recoverybuddy",
+    title: "Recovery Buddy",
+    category: "web",
+    year: "Client work",
+    tagline: "24/7 UK Towing & Vehicle Recovery.",
+    description:
+      "Recovery Buddy website, listed by Huzaifa for the Web Development folder. Shown here with its live preview.",
+    problem: "A business website, listed in Huzaifa's Web Development portfolio.",
+    solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
+    technologies: ["Website"],
+    role: "Client site in Huzaifa's portfolio.",
+    features: ["Live website preview above", "Open live site from the preview bar"],
+    result: "Live at recoverybuddy.co.uk, shown here with its live preview.",
+    tags: ["web", "recovery"],
+    screenshots: [],
+    liveUrl: "https://recoverybuddy.co.uk/",
+    previewUrl: "https://recoverybuddy.co.uk/",
+    thumbImage: "/thumb-recoverybuddy.jpg",
+    previewOnly: true,
+  },
+  {
+    id: "web-rafold",
+    title: "Rafold",
+    category: "web",
+    year: "Client work",
+    tagline: "Crafted In Pure Leather | Slim Bifold Wallets.",
+    description:
+      "Rafold store, listed by Huzaifa for the Web Development folder. Shown here with its live preview.",
+    problem: "A business website, listed in Huzaifa's Web Development portfolio.",
+    solution: "Shown here with its live preview — open the site from the preview bar to explore it in full.",
+    technologies: ["Website"],
+    role: "Client site in Huzaifa's portfolio.",
+    features: ["Live website preview above", "Open live site from the preview bar"],
+    result: "Live at rafold.com, shown here with its live preview.",
+    tags: ["web", "ecommerce", "leather"],
+    screenshots: [],
+    liveUrl: "https://rafold.com/",
+    previewUrl: "https://rafold.com/",
+    thumbImage: "/thumb-rafold.jpg",
+    previewOnly: true,
+  },
+];
 ];
 
 export interface SkillGroup {

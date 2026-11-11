@@ -63,7 +63,7 @@ function ProjectPreview({ project }: { project: Project }) {
   // 90% zoom (Huzaifa, 2026-11-11): the preview is shown inside a fixed-height
   // wrapper with the content scaled to 0.9 and sized 1/0.9, so it fills the
   // wrapper exactly at 90% zoom instead of leaving a blank margin.
-  const isWP = project.category === "wordpress";
+  const isWP = project.previewOnly === true;
 
   if (project.previewImage) {
     return (
@@ -162,10 +162,11 @@ export function ProjectWindow({ win }: { win: WinState }) {
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
-  // WordPress folder sites (Huzaifa, 2026-11-11): the window shows ONLY the
-  // preview — no category/title/tagline header above it and no role, tools,
-  // features, result or buttons below it.
-  if (project.category === "wordpress") {
+  // Preview-only sites (WordPress folder, 2026-11-11; Web Development
+  // folder, 2026-11-11): the window shows ONLY the preview — no
+  // category/title/tagline header above it and no role, tools, features,
+  // result or buttons below it.
+  if (project.previewOnly === true) {
     return (
       <div className="w7-pane" style={{ padding: 0 }}>
         <ProjectPreview project={project} />
