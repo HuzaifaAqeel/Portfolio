@@ -85,16 +85,13 @@ export const categories: Category[] = [
   { id: "web", name: "Web Development", blurb: "Full-stack sites, dashboards, landing pages and portals" },
   { id: "wordpress", name: "WordPress", blurb: "Client websites, each with a live preview" },
   { id: "ai", name: "AI & Automation", blurb: "Agents, RAG assistants, voice pipelines and workflow automation" },
-  { id: "data", name: "Data & Retrieval", blurb: "Hybrid search, vector stores, evaluation and pipelines" },
-  { id: "business", name: "Business Projects", blurb: "Agency work, client platforms and internal tools" },
-  { id: "other", name: "Other Projects", blurb: "Open source, experiments and side builds" },
 ];
 
 export const projects: Project[] = [
   {
     id: "thehexasystem",
     title: "TheHexaSystem — AI Automation Agency",
-    category: "business",
+    category: "web",
     year: "2025",
     tagline: "Founder-built agency site for AI automation, voice agents and funnels",
     description:
@@ -117,6 +114,8 @@ export const projects: Project[] = [
     screenshots: ["Home and services", "Process section", "Calculator and booking"],
     liveUrl: "https://thehexasystems.com",
     previewUrl: "https://thehexasystems.com",
+    thumbImage: "/thumb-hexa.jpg",
+    previewOnly: true,
     githubUrl: "https://github.com/HuzaifaAqeel/TheHexaSystem",
     featured: true,
   },
@@ -150,7 +149,7 @@ export const projects: Project[] = [
   {
     id: "hybrid-rag-lab",
     title: "Hybrid RAG Lab",
-    category: "data",
+    category: "ai",
     year: "2025",
     tagline: "BM25 + Milvus dense retrieval, fused with RRF and reranked",
     description:
@@ -203,7 +202,7 @@ export const projects: Project[] = [
   {
     id: "mcp-framework",
     title: "MCP Framework (Python)",
-    category: "other",
+    category: "ai",
     year: "2025",
     tagline: "Minimal, spec-faithful framework for MCP servers and clients",
     description:
@@ -307,7 +306,7 @@ export const projects: Project[] = [
   {
     id: "multipdf-rag-chatbot",
     title: "MultiPDF RAG Chatbot",
-    category: "data",
+    category: "ai",
     year: "2024",
     tagline: "Chat with multiple PDFs, with citations per document",
     description:
