@@ -1244,6 +1244,24 @@
   border-radius: 0 0 3px 3px;
   background: #fff;
 }
+/* 90% zoom preview: fixed-height wrapper, content 1/0.9 wide/tall and scaled
+   to 0.9 from the top-left so it fills the wrapper exactly at 90% zoom. */
+.w7-preview-zoom {
+  height: 420px;
+  overflow: hidden;
+  border: 1px solid #b9cede;
+  border-radius: 0 0 3px 3px;
+  background: #fff;
+}
+.w7-preview-zoomed {
+  display: block;
+  width: 111.11%;
+  height: 466.67px;
+  border: 0;
+  transform: scale(0.9);
+  transform-origin: top left;
+  background: #fff;
+}
 .w7-readme {
   margin-top: 6px;
   max-height: 420px;

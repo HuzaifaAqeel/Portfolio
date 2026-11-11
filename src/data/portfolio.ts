@@ -30,6 +30,9 @@ export interface Project {
    * embedding (X-Frame-Options / frame-ancestors) so its window still shows
    * the actual site visibly instead of a blank frame. */
   previewImage?: string;
+  /** Captured hero-section screenshot shown as the tile thumbnail in the
+   * WordPress folder (Explorer) — the actual site's homepage top. */
+  thumbImage?: string;
   caseStudyUrl?: string;
   githubUrl?: string;
   featured?: boolean;
@@ -77,7 +80,7 @@ export const owner = {
 
 export const categories: Category[] = [
   { id: "web", name: "Web Development", blurb: "Full-stack sites, dashboards, landing pages and portals" },
-  { id: "wordpress", name: "WordPress", blurb: "WordPress & WooCommerce client websites, each with a live preview" },
+  { id: "wordpress", name: "WordPress", blurb: "Client websites, each with a live preview" },
   { id: "ai", name: "AI & Automation", blurb: "Agents, RAG assistants, voice pipelines and workflow automation" },
   { id: "data", name: "Data & Retrieval", blurb: "Hybrid search, vector stores, evaluation and pipelines" },
   { id: "business", name: "Business Projects", blurb: "Agency work, client platforms and internal tools" },
@@ -402,31 +405,6 @@ export const projects: Project[] = [
     screenshots: ["Probe suite", "Gateway view", "Eval report"],
     githubUrl: "https://github.com/HuzaifaAqeel/Agent-Red-Team-Eval",
   },
-  {
-    id: "wordpress-woocommerce",
-    title: "WordPress & WooCommerce Client Sites",
-    category: "wordpress",
-    year: "2024",
-    tagline: "Custom themes, Elementor builds, WooCommerce shops and migrations",
-    description:
-      "WordPress websites and WooCommerce shops for local and international clients: custom and child themes, Elementor and Theme Builder layouts, Figma-to-WordPress builds, and performance, SEO and security work.",
-    problem:
-      "Small businesses need a site that looks custom, loads fast, sells, and can be updated without a developer every time.",
-    solution:
-      "Built custom themes and page templates, customized plugins, resolved theme and plugin conflicts, and handled speed optimization, backups, updates and migrations through cPanel and hosting.",
-    technologies: ["WordPress", "Elementor", "WooCommerce", "PHP", "MySQL", "ACF", "Gutenberg"],
-    role: "WordPress developer — themes, builds, shops, fixes and maintenance.",
-    features: [
-      "Custom and child themes, custom post types and ACF",
-      "Elementor and Theme Builder headers, footers and archives",
-      "WooCommerce shop, cart and checkout customization",
-      "Speed, on-page SEO, security hardening and migrations",
-    ],
-    result:
-      "Delivered as ongoing client work since 2023, alongside MERN and AI projects.",
-    tags: ["wordpress", "woocommerce", "elementor", "php", "web"],
-    screenshots: ["Theme build", "Shop page", "Elementor layout"],
-  },
   // WordPress folder sites, from Huzaifa's HeyLink (heylink.me/huzaifa.aqeel)
   // and the picture he sent 2026-11-04. Each one is shown with its live
   // preview (previewUrl) — no invented build details: problem/solution are
@@ -449,6 +427,7 @@ export const projects: Project[] = [
     screenshots: [],
     liveUrl: "https://halohouse.agency",
     previewUrl: "https://halohouse.agency",
+    thumbImage: "/thumb-halohouse.jpg",
   },
   {
     id: "wp-buzful",
@@ -468,6 +447,7 @@ export const projects: Project[] = [
     screenshots: [],
     liveUrl: "https://www.buzful.com/",
     previewUrl: "https://www.buzful.com/",
+    thumbImage: "/thumb-buzful.jpg",
   },
   {
     id: "wp-aarecovery",
@@ -487,6 +467,7 @@ export const projects: Project[] = [
     screenshots: [],
     liveUrl: "https://aarecoveryandtransport.com",
     previewUrl: "https://aarecoveryandtransport.com",
+    thumbImage: "/thumb-aarecovery.jpg",
   },
   {
     id: "wp-assignmentmakerpro",
@@ -506,6 +487,7 @@ export const projects: Project[] = [
     screenshots: [],
     liveUrl: "https://assignmentmakerpro.com",
     previewUrl: "https://assignmentmakerpro.com",
+    thumbImage: "/thumb-assignmentmakerpro.jpg",
   },
   {
     id: "wp-celestialspring",
@@ -525,6 +507,7 @@ export const projects: Project[] = [
     screenshots: [],
     liveUrl: "https://celestialspringrealestate.com",
     previewUrl: "https://celestialspringrealestate.com",
+    thumbImage: "/thumb-celestialspring.jpg",
   },
   {
     id: "wp-gemuro",
@@ -544,6 +527,7 @@ export const projects: Project[] = [
     screenshots: [],
     liveUrl: "https://gemuro.com",
     previewImage: "/preview-gemuro.jpg",
+    thumbImage: "/thumb-gemuro.jpg",
   },
   {
     id: "wp-purejoy",
@@ -563,6 +547,7 @@ export const projects: Project[] = [
     screenshots: [],
     liveUrl: "https://www.purejoy.pk",
     previewImage: "/preview-purejoy.jpg",
+    thumbImage: "/thumb-purejoy.jpg",
   },
   {
     id: "wp-apkshop",
@@ -582,6 +567,7 @@ export const projects: Project[] = [
     screenshots: [],
     liveUrl: "https://apkshop.com.pk",
     previewUrl: "https://apkshop.com.pk",
+    thumbImage: "/thumb-apkshop.jpg",
   },
   {
     id: "wp-endurapaint",
@@ -601,6 +587,7 @@ export const projects: Project[] = [
     screenshots: [],
     liveUrl: "https://www.endurapaint.com",
     previewUrl: "https://www.endurapaint.com",
+    thumbImage: "/thumb-endurapaint.jpg",
   },
   {
     id: "wp-guardiannw",
@@ -620,6 +607,7 @@ export const projects: Project[] = [
     screenshots: [],
     liveUrl: "https://guardiannw.uk",
     previewUrl: "https://guardiannw.uk",
+    thumbImage: "/thumb-guardiannw.jpg",
   },
   {
     id: "wp-texastulsa",
@@ -639,6 +627,7 @@ export const projects: Project[] = [
     screenshots: [],
     liveUrl: "https://texastulsaconnection.com",
     previewUrl: "https://texastulsaconnection.com",
+    thumbImage: "/thumb-texastulsa.jpg",
   },
   {
     id: "portfolio-os",

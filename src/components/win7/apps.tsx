@@ -60,10 +60,15 @@ function ProjectPreview({ project }: { project: Project }) {
     };
   }, [project.previewUrl, repo]);
 
+  // 90% zoom (Huzaifa, 2026-11-11): the preview is shown inside a fixed-height
+  // wrapper with the content scaled to 0.9 and sized 1/0.9, so it fills the
+  // wrapper exactly at 90% zoom instead of leaving a blank margin.
+  const isWP = project.category === "wordpress";
+
   if (project.previewImage) {
     return (
       <section>
-        <h2 className="w7-h2">Preview — the actual website</h2>
+        {!isWP && <h2 className="w7-h2">Preview — the actual website</h2>}
         <div className="w7-preview">
           <div className="w7-preview-bar">
             <span className="w7-preview-url" title={project.liveUrl}>{project.liveUrl}</span>
@@ -71,11 +76,15 @@ function ProjectPreview({ project }: { project: Project }) {
               Open live site
             </button>
           </div>
-          <img src={project.previewImage} alt={`Homepage of ${project.title}`} className="w7-preview-frame" style={{ height: "auto", objectFit: "cover" }} />
-          <p className="w7-p" style={{ fontSize: 11, color: "#6b7c8c", marginTop: 6 }}>
-            This site blocks embedding, so here is a captured view of its real homepage instead of a
-            blank frame — use “Open live site” to browse it in full.
-          </p>
+          <div className="w7-preview-zoom">
+            <img src={project.previewImage} alt={`Homepage of ${project.title}`} className="w7-preview-zoomed" style={{ objectFit: "cover" }} />
+          </div>
+          {!isWP && (
+            <p className="w7-p" style={{ fontSize: 11, color: "#6b7c8c", marginTop: 6 }}>
+              This site blocks embedding, so here is a captured view of its real homepage instead of a
+              blank frame — use “Open live site” to browse it in full.
+            </p>
+          )}
         </div>
       </section>
     );
@@ -84,7 +93,7 @@ function ProjectPreview({ project }: { project: Project }) {
   if (project.previewUrl) {
     return (
       <section>
-        <h2 className="w7-h2">Live preview — the actual website</h2>
+        {!isWP && <h2 className="w7-h2">Live preview — the actual website</h2>}
         <div className="w7-preview">
           <div className="w7-preview-bar">
             <span className="w7-preview-url" title={project.previewUrl}>{project.previewUrl}</span>
@@ -93,16 +102,20 @@ function ProjectPreview({ project }: { project: Project }) {
               Open live site
             </button>
           </div>
-          <iframe
-            key={frameKey}
-            src={project.previewUrl}
-            title={`Live preview of ${project.title}`}
-            className="w7-preview-frame"
-            loading="lazy"
-          />
-          <p className="w7-p" style={{ fontSize: 11, color: "#6b7c8c", marginTop: 6 }}>
-            If this frame is blank, the site is blocking embedding — use “Open live site” to see it in full.
-          </p>
+          <div className="w7-preview-zoom">
+            <iframe
+              key={frameKey}
+              src={project.previewUrl}
+              title={`Live preview of ${project.title}`}
+              className="w7-preview-zoomed"
+              loading="lazy"
+            />
+          </div>
+          {!isWP && (
+            <p className="w7-p" style={{ fontSize: 11, color: "#6b7c8c", marginTop: 6 }}>
+              If this frame is blank, the site is blocking embedding — use “Open live site” to see it in full.
+            </p>
+          )}
         </div>
       </section>
     );
@@ -148,6 +161,17 @@ export function ProjectWindow({ win }: { win: WinState }) {
   const openReal = (url: string) => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
+
+  // WordPress folder sites (Huzaifa, 2026-11-11): the window shows ONLY the
+  // preview — no category/title/tagline header above it and no role, tools,
+  // features, result or buttons below it.
+  if (project.category === "wordpress") {
+    return (
+      <div className="w7-pane" style={{ padding: 0 }}>
+        <ProjectPreview project={project} />
+      </div>
+    );
+  }
 
   return (
     <div className="w7-pane">

@@ -220,11 +220,22 @@ export function Explorer({ win }: { win: WinState }) {
                 title={p.tagline}
                 {...itemProps(p.id, () => openProject(p))}
               >
-                <MockShot seed={i + p.title.length} height={86} variant={shotVariant(p)} label={p.title} />
+                {p.category === "wordpress" && p.thumbImage ? (
+                  <img
+                    src={p.thumbImage}
+                    alt={`Hero preview of ${p.title}`}
+                    loading="lazy"
+                    style={{ width: "100%", height: 86, objectFit: "cover", objectPosition: "top center", border: "1px solid #b9cede", borderRadius: 2 }}
+                  />
+                ) : (
+                  <MockShot seed={i + p.title.length} height={86} variant={shotVariant(p)} label={p.title} />
+                )}
                 <span className="w7-item-label">{p.title}</span>
-                <span className="w7-item-sub">
-                  {categoryName(p.category)} · {p.year}
-                </span>
+                {p.category !== "wordpress" && (
+                  <span className="w7-item-sub">
+                    {categoryName(p.category)} · {p.year}
+                  </span>
+                )}
               </button>
             ))}
 
