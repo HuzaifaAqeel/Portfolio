@@ -539,7 +539,7 @@ export function ContactWindow() {
       title: "Message Sent",
       kind: "success",
       heading: "Message Sent",
-      message: "Your message is on its way. You just took the first step, and Huzaifa takes every first step seriously. He usually replies within one working day, and your idea is already in good hands.",
+      message: "Your message is on its way. You just took the first step, and every first step matters. Replies usually come within one working day, and your idea is already in good hands.",
       buttons: [{ label: "OK", primary: true }],
     });
     setForm({ name: "", email: "", subject: "", message: "" });
@@ -666,7 +666,7 @@ export function PersonalizeWindow({ wallpapers }: { wallpapers: Record<Settings[
     <div className="w7-pane">
       <h1 className="w7-h1">Change the visuals on your desktop</h1>
       <p className="w7-p" style={{ marginTop: 2 }}>
-        Make it yours. Huzaifa designs every screen like it is his own portfolio, because it is. Pick a background and icon size. Your choice is remembered on this device.
+        Make it yours. Every screen here was designed like it was the only portfolio that mattered, because it is. Pick a background and icon size. Your choice is remembered on this device.
       </p>
       <div className="w7-sep" />
       <h2 className="w7-h2">Desktop background</h2>

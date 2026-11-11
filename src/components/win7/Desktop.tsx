@@ -161,8 +161,8 @@ function DesktopInner() {
           heading: "Windows cannot delete this item",
           message:
             item?.id === "projects"
-              ? "Windows cannot delete “My Projects” because your career depends on it. Huzaifa built this work project by project, and it is not going anywhere. Keep going, one shipped project at a time."
-              : `“${item?.label ?? "This item"}” is part of the portfolio and cannot be removed. Nice try. Huzaifa does not delete his work, he improves it.`,
+              ? "Windows cannot delete “My Projects” because your career depends on it. This work was built project by project, and it is not going anywhere. Keep going, one shipped project at a time."
+              : `“${item?.label ?? "This item"}” is part of the portfolio and cannot be removed. Nice try. Good work is not deleted, it is improved.`,
           buttons: [{ label: "OK", primary: true }],
         });
       }
@@ -174,7 +174,7 @@ function DesktopInner() {
   const refresh = () => {
     setRefreshing(true);
     play("menu");
-    setSortNote("Refreshed. Same great work, shinier pixels. Huzaifa ships, then ships again.");
+    setSortNote("Refreshed. Same great work, shinier pixels. Ship, then ship again.");
     window.setTimeout(() => setSortNote(null), 3000);
     window.setTimeout(() => setRefreshing(false), 360);
   };
@@ -257,13 +257,13 @@ function DesktopInner() {
           onClose={() => setMenu(null)}
           onIconSize={(s) => {
             setSettings({ iconSize: s });
-            setSortNote("Icons resized. Big dreams, bigger icons. Huzaifa designs every screen to fit, big or small.");
+            setSortNote("Icons resized. Big dreams, bigger icons. Every screen here was designed to fit, big or small.");
             window.setTimeout(() => setSortNote(null), 3000);
           }}
           onRefresh={refresh}
           onPersonalize={() => open({ app: "personalize" })}
           onSort={(how) => {
-            setSortNote(`Sorted by ${how}. Huzaifa's best work always finds its way to the top, just like his projects do.`);
+            setSortNote(`Sorted by ${how}. The best work always finds its way to the top, just like these projects do.`);
             window.setTimeout(() => setSortNote(null), 3000);
           }}
           onNew={(what) =>
@@ -272,7 +272,7 @@ function DesktopInner() {
               kind: "info",
               heading: `Cannot create ${what.toLowerCase()}`,
               message:
-                "This desktop is read-only, but your ideas are not. Every project here started as one blank folder and one stubborn idea. Huzaifa turned his into 30+ AI systems and real client websites. Rearrange the wallpaper and icon size instead, or open My Projects to see what stubborn ideas become.",
+                "This desktop is read-only, but your ideas are not. Every project here started as one blank folder and one stubborn idea. Those blank folders turned into 30+ AI systems and real client websites. Rearrange the wallpaper and icon size instead, or open My Projects to see what stubborn ideas become.",
               buttons: [
                 { label: "Personalize", primary: true, action: () => open({ app: "personalize" }) },
                 { label: "Cancel" },

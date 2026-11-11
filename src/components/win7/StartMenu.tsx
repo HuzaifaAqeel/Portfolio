@@ -62,7 +62,7 @@ export function StartMenu({ onClose }: { onClose: () => void }) {
       title: "Turn Off Computer",
       kind: "warn",
       heading: "Leaving already?",
-      message: "Great work takes time, and so do great websites. Huzaifa built this whole portfolio one window at a time, and he can build yours the same way. Before you go, say hello on the Contact page. He usually replies within one working day, and your next big idea could start with one message.",
+      message: "Great work takes time, and so do great websites. This whole portfolio was built one window at a time, and your website can be built the same way. Before you go, say hello on the Contact page. Replies usually come within one working day, and your next big idea could start with one message.",
       buttons: [
         { label: "Visit Contact Page", primary: true, action: () => open({ app: "contact" }) },
         { label: "Stay Here" },

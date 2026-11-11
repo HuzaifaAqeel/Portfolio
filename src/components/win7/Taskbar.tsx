@@ -169,7 +169,7 @@ export function Taskbar({
                 title: "Notification Area",
                 kind: "info",
                 heading: "Nothing hidden here",
-                message: "Two abandoned side projects and an update that has been pending since 2014. Even Huzaifa's unfinished ideas refuse to give up.",
+                message: "Two abandoned side projects and an update that has been pending since 2014. Even the unfinished ideas here refuse to give up.",
                 buttons: [{ label: "OK", primary: true }],
               })
             }

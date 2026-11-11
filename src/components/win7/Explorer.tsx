@@ -200,7 +200,7 @@ export function Explorer({ win }: { win: WinState }) {
                     kind: "warn",
                     heading: "Windows cannot delete this folder",
                     message:
-                      "Windows cannot delete “" + c.name + "” because your career depends on it. Huzaifa built this folder project by project. Deleting it would be like deleting the journey, and the journey is the whole point.",
+                      "Windows cannot delete “" + c.name + "” because your career depends on it. This folder was built project by project. Deleting it would be like deleting the journey, and the journey is the whole point.",
                     buttons: [{ label: "OK", primary: true }],
                   });
                 }}
